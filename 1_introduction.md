@@ -11,5 +11,7 @@ From the above diagram, observe that the process flow in the pipeline is iterati
 ## The Challenge
 It is easy to recognize that the pipeline requires a significant amount of development operations for the seamless transition from one component to another when building a learning model. This interoperability of parts has gave rise to Machine Learning Ops, also know as MLOps. The term is coined as an amaglam of Machine Learning and DevOps.
 
+The common way of doing machine learning is to perform all of the experiment and development work in Jupyter notebooks and the model is exported and sent off to the 
+
 
 <!-- that if overlooked can very much result in a poor or under-performing model. -->
