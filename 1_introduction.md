@@ -6,7 +6,9 @@ A typical machine lerning production pipeline looks like the illustration below.
 
 <img src="img/ml_pipeline.png" align="left" alt="Machine Learning Pipeline."/>
 
+From the above diagram, observe that some of the process flows in the pipeline is iterative. This repititve pattern is central to machine learning experimentation, design and deployment.
 
+## The Challenge
 
 
 
