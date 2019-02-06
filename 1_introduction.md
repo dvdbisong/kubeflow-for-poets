@@ -15,6 +15,9 @@ The common way of doing machine learning is to perform all of the experiment and
 
 However, by incorporating the microservices design pattern to machine learning development, we can address a host of these concerns and really streamline the productionalization process.
 
+## A Word on Google Cloud Platform (GCP)
+The tutorial will focus on developing and deploying production models on Google Cloud Platform. However, when working with microservices, the pipeline is machine agnostic and can easily be deployed on any other on-prem infrastructure or public cloud service provider such as AWS or Azure.
 
+Google Cloud Platform offers 
 
 <!-- that if overlooked can very much result in a poor or under-performing model. -->
