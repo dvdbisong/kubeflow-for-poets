@@ -4,7 +4,7 @@ Machine learning is often and rightly viewed as the use of mathematical algorith
 
 A typical machine lerning production pipeline looks like the illustration below.
 
-<img src="img/gcp.png" align="left" alt="Google Cloud Platform." height=20% width=20%/>
+<img src="img/ml_pipeline.png" align="left" alt="Machine Learning Pipeline."/>
 
 
 
