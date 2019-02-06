@@ -8,10 +8,13 @@ A typical machine lerning production pipeline looks like the illustration below.
 
 From the above diagram, observe that the process flow in the pipeline is iterative. This repititve pattern is central to machine learning experimentation, design and deployment.
 
-## The Challenge
+## The Efficiency Challenge
 It is easy to recognize that the pipeline requires a significant amount of development operations for the seamless transition from one component to another when building a learning model. This interoperability of parts has gave rise to Machine Learning Ops, also know as MLOps. The term is coined as an amaglam of Machine Learning and DevOps.
 
-The common way of doing machine learning is to perform all of the experiment and development work in Jupyter notebooks and the model is exported and sent off to the 
+The common way of doing machine learning is to perform all of the experiment and development work in Jupyter notebooks and the model is exported and sent off to the software development team for deployment and endpoint generation for integration into downstream software products while the infrastructure and configuration of the machine for model development is handled by the DevOps team. This monolithic way of working results in a machine learning process that is not re-usable, difficult to scale and maintian, even tougher to audit and perform model improvment and it is easily fraught with errors and unnecessary complexities.
+
+However, by incorporating the microservices design pattern to machine learning development, we can address a host of these concerns and really streamline the productionalization process.
+
 
 
 <!-- that if overlooked can very much result in a poor or under-performing model. -->
