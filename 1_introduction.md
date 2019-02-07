@@ -23,6 +23,6 @@ Google Cloud Platform has a powerful array of AI serverless services that we wil
 <p align="left">
     <img src="img/bigquery.jpg" align="middle" alt="BigQuery." height=20% width=20%/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <img src="img/dataflow.png" align="middle" alt="Dataflow." height=20% width=20%/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <img src="img/cloudmle.jpg" align="middle" alt="Cloud MLE." height=20% width=20%/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <img src="img/gcp.png" align="middle" alt="Google Cloud Platform." height=20% width=20%/>
+    <img src="img/cloudmle.png" align="middle" alt="Cloud MLE." height=20% width=20%/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <img src="img/tensorflow.jpg" align="middle" alt="Google Cloud Platform." height=20% width=20%/>
 </p>
