@@ -6,18 +6,23 @@ A typical machine lerning production pipeline looks like the illustration below.
 
 <img src="img/ml_pipeline.png" align="left" alt="Machine Learning Pipeline."/>
 
-From the above diagram, observe that the process flow in the pipeline is iterative. This repititve pattern is central to machine learning experimentation, design and deployment.
+From the above diagram, observe that the process flow in the pipeline is iterative. This repetitive pattern is central to machine learning experimentation, design and deployment.
 
 ## The Efficiency Challenge
-It is easy to recognize that the pipeline requires a significant amount of development operations for the seamless transition from one component to another when building a learning model. This interoperability of parts has gave rise to Machine Learning Ops, also know as MLOps. The term is coined as an amaglam of Machine Learning and DevOps.
+It is easy to recognize that the pipeline requires a significant amount of development operations for the seamless transition from one component to another when building a learning model. This interoperability of parts has given rise to Machine Learning Ops, also know as MLOps. The term is coined as an amalgam of Machine Learning and DevOps.
 
-The common way of doing machine learning is to perform all of the experiment and development work in Jupyter notebooks and the model is exported and sent off to the software development team for deployment and endpoint generation for integration into downstream software products while the infrastructure and configuration of the machine for model development is handled by the DevOps team. This monolithic way of working results in a machine learning process that is not re-usable, difficult to scale and maintian, even tougher to audit and perform model improvment and it is easily fraught with errors and unnecessary complexities.
+The conventional way of doing machine learning is to perform all of the experiment and development work in Jupyter notebooks and the model is exported and sent off to the software development team for deployment and endpoint generation for integration into downstream software products while the DevOps team handles the infrastructure and configuration of the machine for model development. This monolithic style of working results in a machine learning process that is not re-usable, difficult to scale and maintain, even tougher to audit and perform model improvement and it is easily fraught with errors and unnecessary complexities.
 
 However, by incorporating the microservices design pattern to machine learning development, we can address a host of these concerns and really streamline the productionalization process.
 
 ## A Word on Google Cloud Platform (GCP)
-The tutorial will focus on developing and deploying production models on Google Cloud Platform infrastructure. However, when working with microservices, the containerized pipeline is machine agnostic and can easily be deployed on any other on-prem infrastructure or public cloud service provider such as AWS or Azure.
+The tutorial will focus on developing and deploying production models on Google Cloud Platforms' infrastructure. The advantage of the cloud is the ease of distributing and scaling out individual workflow components depending o resource demands. However, when working with microservices, the containerized pipeline is machine agnostic and can quickly be deployed on any other on-prem infrastructure or public cloud service providers such as AWS or Azure.
 
-Google Cloud Platform offers 
+Google Cloud Platform has a powerful array of AI serverless services that we will incorporate to handle some components of the production pipeline. These services include Google BigQuery for staging our transformed dataset for easy analytics, Google Dataflow for large-scale data transformation, and Google Cloud Machine Learning Engine for large-scale model training and model deployment. Of course, we will work with Tensorflow and take advantage of some of the extensions to Tensorflow such as the Tensorflow Transform (TFT) for consistent feature transforms across different data splits, TFJob CRD Custom Resource Definitions library for distributed training, TensorFlow Model Analysis for model introspection.
 
-<!-- that if overlooked can very much result in a poor or under-performing model. -->
+<p align="left">
+    <img src="img/bigquery.jpg" align="middle" alt="BigQuery." height=20% width=20%/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <img src="img/dataflow.png" align="middle" alt="Dataflow." height=20% width=20%/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <img src="img/cloudmle.jpg" align="middle" alt="Cloud MLE." height=20% width=20%/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <img src="img/gcp.png" align="middle" alt="Google Cloud Platform." height=20% width=20%/>
+</p>
