@@ -21,10 +21,7 @@ The tutorial will focus on developing and deploying production models on Google 
 Google Cloud Platform has a powerful array of AI serverless services that we will incorporate to handle some components of the production pipeline. These services include Google BigQuery for staging our transformed dataset for easy analytics, Google Dataflow for large-scale data transformation, and Google Cloud Machine Learning Engine for large-scale model training and model deployment. Of course, we will work with Tensorflow and take advantage of some of the extensions to Tensorflow such as the Tensorflow Transform (TFT) for consistent feature transforms across different data splits, TFJob CRD Custom Resource Definitions library for distributed training, TensorFlow Model Analysis for model introspection.
 
 <p align="left">
-    <!-- <div style="width:image width px; font-size:80%; text-align:center;"><img src="URL" alt="alternate text" width="width" height="height" style="padding-bottom:0.5em;" />This is my caption</div> -->
-    <div style="width:20%; font-size:80%; text-align:center;">
-    <img src="img/bigquery.jpg" align="middle" alt="BigQuery." height=20% width=20%/>BigQuery
-    </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <img src="img/bigquery.jpg" align="middle" alt="BigQuery." height=20% width=20%/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <img src="img/dataflow.png" align="middle" alt="Dataflow." height=20% width=20%/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <img src="img/cloudmle.png" align="middle" alt="Cloud MLE." height=20% width=20%/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <img src="img/tensorflow.jpg" align="middle" alt="Google Cloud Platform." height=20% width=20%/>
