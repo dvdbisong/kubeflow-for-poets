@@ -4,4 +4,4 @@ Docker is a virtualization application that abstracts applications into isolated
 
 The traditional way of developing applications is where an application is designed and hosted on a single server.
 
-<img src="img/single-server.png" align="left" alt="Single Server." height=60% width=60%/>
+<img src="img/single-server.png" align="left" alt="Single Server." height=50% width=50%/>
