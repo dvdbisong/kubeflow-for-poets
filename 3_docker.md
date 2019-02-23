@@ -40,6 +40,6 @@ The following are key routines when creating a Dockerfile.
 |__CMD__ | Specifies the command to execute when running the container. This command is overridden if another command is specified at runtime.
 |__ENTRYPOINT__ | Specifies the command to execute when running the container. Entrypoint commands are not overridden by a command specified at runtime.
 |__WORKDIR__ | Set working directory of the container.
-|__VOLUME__ | ABCD
-|__ARG__ | ABCD
-|__ENV__ | ABCD
+|__VOLUME__ | Mount a volume from the local machine filesystem to the Docker container.
+|__ARG__ | Set Environment variables when building the image.
+|__ENV__ | Set Environment variables that will be available in the container after building.
