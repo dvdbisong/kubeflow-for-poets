@@ -14,3 +14,11 @@ Virtual machines (VMs) emulates the capabilities of a physical machine making it
 Containers on the other hand isolate the environment for hosting an application with its own libraries and software dependencies, however, as opposed to a VM, containers on a machine all share the same operating system kernel. Docker is an example of a container.
 
 <img src="img/containers.png" alt="Containers." height=40% width=40% />
+
+## Working with Docker
+Begin by installing Docker software on the local machine to enable it run Docker containers. Visit <a href="https://www.docker.com/get-started">https://www.docker.com/get-started</a> to get started.
+
+Key concepts to note are:
+- **Dockerfile:** A Dockerfile is a text file that specifies how an image will be created.
+- **Docker Images:** Images are created by building a Dockerfile.
+- **Docker Containers:** Docker containers is the runnning instance of an image.
