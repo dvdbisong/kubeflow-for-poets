@@ -25,4 +25,4 @@ Key concepts to note are:
 
 The diagram below highlights the process to build an image and run a Docker container.
 
-<img src="img/docker_process.png" alt="Docker containerization process." height=40% width=40% />
+<img src="img/docker_process.png" alt="Docker containerization process." height=90% width=90% />
