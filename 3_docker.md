@@ -26,3 +26,20 @@ Key concepts to note are:
 The diagram below highlights the process to build an image and run a Docker container.
 
 <img src="img/docker_process.png" alt="Docker containerization process." height=90% width=90% />
+
+## Writing a Dockerfile
+The following are key routines for creating a Dockerfile.
+
+|**Command**|**Description**|
+|-|-|
+|__FROM__| A Workshop on Machine Learning using Google Cloud Platform
+|__MAINTAINER__| ABCD
+|__RUN__| February 1 and 8, 2019
+|__COPY__| February 1 and 8, 2019
+|__EXPOSE__ | __Ekaba Bisong__ <br>Google Developer Expert in Machine Learning<br> Google Certified Professional Data Engineer
+|__CMD__ | ABCD
+|__ENTRYPOINT__ | ABCD
+|__WORKDIR__ | ABCD
+|__VOLUME__ | ABCD
+|__ARG__ | ABCD
+|__ENV__ | ABCD
