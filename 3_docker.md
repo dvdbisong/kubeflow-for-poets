@@ -37,9 +37,9 @@ The following are key routines when creating a Dockerfile.
 |__RUN__| Commands to execute when building the container.
 |__COPY__| Copies files from the local machine to the container filesystem.
 |__EXPOSE__ | Exposes runtime ports for the Docker container.
-|__CMD__ | ABCD
-|__ENTRYPOINT__ | ABCD
-|__WORKDIR__ | ABCD
+|__CMD__ | Specifies the command to execute when running the container. This command is overridden if another command is specified at runtime.
+|__ENTRYPOINT__ | Specifies the command to execute when running the container. Entrypoint commands are not overridden by a command specified at runtime.
+|__WORKDIR__ | Set working directory of the container.
 |__VOLUME__ | ABCD
 |__ARG__ | ABCD
 |__ENV__ | ABCD
