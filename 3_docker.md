@@ -32,9 +32,9 @@ The following are key routines when creating a Dockerfile.
 
 |**Command**|**Description**|
 |-|-|
-|__FROM__| specifies the base Docker image for the Dokerfile.
-|__MAINTAINER__| ABCD
-|__RUN__| February 1 and 8, 2019
+|__FROM__| The base Docker image for the Dokerfile.
+|__MAINTAINER__| The name and details of the Dockerfile maintainer.
+|__RUN__| Commands to execute on the container.
 |__COPY__| February 1 and 8, 2019
 |__EXPOSE__ | __Ekaba Bisong__ <br>Google Developer Expert in Machine Learning<br> Google Certified Professional Data Engineer
 |__CMD__ | ABCD
