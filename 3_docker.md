@@ -32,7 +32,7 @@ The following are key routines when creating a Dockerfile.
 
 |**Command**|**Description**|
 |-|-|
-|__FROM__| A Workshop on Machine Learning using Google Cloud Platform
+|__FROM__| specifies the base Docker image for the Dokerfile.
 |__MAINTAINER__| ABCD
 |__RUN__| February 1 and 8, 2019
 |__COPY__| February 1 and 8, 2019
