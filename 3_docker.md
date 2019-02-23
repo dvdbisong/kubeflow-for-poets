@@ -27,12 +27,16 @@ The diagram below highlights the process to build an image and run a Docker cont
 
 <img src="img/docker_process.png" alt="Docker containerization process." height=90% width=90% />
 
+## Introducing DockerHub
+DockerHub is a library for storing Docker images.
+<img src="img/dockerhub.png" alt="Dockerhub." height=90% width=90% />
+
 ## Writing a Dockerfile
 The following are key routines when creating a Dockerfile.
 
 |**Command**|**Description**|
 |-|-|
-|__FROM__| The base Docker image for the Dokerfile.
+|__FROM__| The base Docker image for the Dockerfile.
 |__MAINTAINER__| The contact details of the Dockerfile maintainer.
 |__RUN__| Commands to execute when building the container.
 |__COPY__| Copies files from the local machine to the container filesystem.
