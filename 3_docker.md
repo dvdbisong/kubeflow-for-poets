@@ -28,7 +28,7 @@ The diagram below highlights the process to build an image and run a Docker cont
 <img src="img/docker_process.png" alt="Docker containerization process." height=90% width=90% />
 
 ## Writing a Dockerfile
-The following are key routines for creating a Dockerfile.
+The following are key routines when creating a Dockerfile.
 
 |**Command**|**Description**|
 |-|-|
