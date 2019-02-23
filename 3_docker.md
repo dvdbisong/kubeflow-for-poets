@@ -34,7 +34,7 @@ The following are key routines when creating a Dockerfile.
 |-|-|
 |__FROM__| The base Docker image for the Dokerfile.
 |__MAINTAINER__| The contact details of the Dockerfile maintainer.
-|__RUN__| Commands to execute on the container.
+|__RUN__| Commands to execute when building the container.
 |__COPY__| Copies files from the local machine to the container filesystem.
 |__EXPOSE__ | Exposes runtime ports for the Docker container.
 |__CMD__ | ABCD
