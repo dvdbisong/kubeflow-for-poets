@@ -22,3 +22,7 @@ Key concepts to note are:
 - **Dockerfile:** A Dockerfile is a text file that specifies how an image will be created.
 - **Docker Images:** Images are created by building a Dockerfile.
 - **Docker Containers:** Docker containers is the runnning instance of an image.
+
+The diagram below highlights the process to build an image and run a Docker container.
+
+<img src="img/docker_process.png" alt="Docker containerization process." height=40% width=40% />
