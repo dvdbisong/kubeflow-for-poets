@@ -12,6 +12,7 @@ Table of Contents:
   - [Important Docker Commands](#important-docker-commands)
     - [Commands for Managing Images](#commands-for-managing-images)
     - [Commands for Managing Containers](#commands-for-managing-containers)
+    - [Running a Docker Container](#running-a-docker-container)
 
 Docker is a virtualization application that abstracts applications into isolated environments known as *containers*. The idea behind a container is to provide a unified platform that includes the software tools and dependencies for developing and deploying an application.
 
@@ -163,3 +164,15 @@ Todays date is Sun Feb 24 04:45:08 UTC 2019
 |`docker kill CONTAINER_ID]`| Forcefully stop the container with `[CONTAINER_ID` on the machine.
 |`docker rm [CONTAINER_ID]`| Remove the container with `[CONTAINER_ID` from the machine.
 |`docker rm $(docker ps -a -q)`| Remove all containers from the machine.
+
+### Running a Docker Container
+Let's breakdown the following command for running a Docker container.
+```bash
+docker run -d -it --rm --name [CONTAINER_NAME] -p 8081:80 [IMAGE_NAME]
+```
+where,
+- `-d`: run the container in detached mode. This mode runs the container in the background.
+- `-it`: run in interactive mode, with a terminal session attached.
+- `--rm`: remove the container when it exits.
+- `--name`: specify a name for the container.
+- `-p`: port forwarding from host to the container (i.e. host:container).
