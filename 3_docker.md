@@ -37,19 +37,66 @@ The following are key routines when creating a Dockerfile.
 |**Command**|**Description**|
 |-|-|
 |__FROM__| The base Docker image for the Dockerfile.
-|__MAINTAINER__| The contact details of the Dockerfile maintainer.
-|__RUN__| Commands to execute when building the container.
+|__LABEL__| Key-value pair for specifying image metadata.
+|__RUN__| It execute commands on top of the current image as new layers.
 |__COPY__| Copies files from the local machine to the container filesystem.
 |__EXPOSE__ | Exposes runtime ports for the Docker container.
 |__CMD__ | Specifies the command to execute when running the container. This command is overridden if another command is specified at runtime.
 |__ENTRYPOINT__ | Specifies the command to execute when running the container. Entrypoint commands are not overridden by a command specified at runtime.
 |__WORKDIR__ | Set working directory of the container.
 |__VOLUME__ | Mount a volume from the local machine filesystem to the Docker container.
-|__ARG__ | Set Environment variables when building the image.
-|__ENV__ | Set Environment variables that will be available in the container after building.
+|__ARG__ | Set Environment variable as a key-value pair when building the image.
+|__ENV__ | Set Environment variable as a key-value pair that will be available in the container after building.
 
 ## Building and Running a Simple Docker Container
+The Dockerfile for this containers' image is stored in `docker-intro/hello-world`.
+
 ```bash
 # navigate to folder with images
 cd docker-intro/hello-world
+```
+
+Let's view the Dockerfile.
+```bash
+cat Dockerfile
+```
+
+```bash
+FROM docker.io/alpine
+LABEL maintainer="dvdbisong@gmail.com"
+ENV DATE date
+CMD echo "Todays date is ${DATE}"
+```
+
+Let's break this down:
+- The Docker image will be built-off the Alpine linux package. See <a href="https://hub.docker.com/_/alpine">https://hub.docker.com/_/alpine</a>
+- When the container runs the `CMD` routines executes.
+
+### Build the Image
+```bash
+docker build -t ekababisong.org/first_image .
+```
+
+```text
+Sending build context to Docker daemon  2.048kB
+Step 1/4 : FROM docker.io/alpine
+latest: Pulling from library/alpine
+6c40cc604d8e: Pull complete 
+Digest: sha256:b3dbf31b77fd99d9c08f780ce6f5282aba076d70a513a8be859d8d3a4d0c92b8
+Status: Downloaded newer image for alpine:latest
+ ---> caf27325b298
+Step 2/4 : LABEL maintainer="dvdbisong@gmail.com"
+ ---> Running in 306600656ab4
+Removing intermediate container 306600656ab4
+ ---> 33beb1ebcb3c
+Step 3/4 : ENV DATE date
+ ---> Running in 688dc55c502a
+Removing intermediate container 688dc55c502a
+ ---> dfd6517a0635
+Step 4/4 : CMD echo "Todays date is ${DATE}"
+ ---> Running in eb80136161fe
+Removing intermediate container eb80136161fe
+ ---> e97c75dcc5ba
+Successfully built e97c75dcc5ba
+Successfully tagged ekababisong.org/first_image:latest
 ```
