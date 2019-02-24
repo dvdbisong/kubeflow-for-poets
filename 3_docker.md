@@ -48,8 +48,8 @@ The following are key routines when creating a Dockerfile.
 |__ARG__ | Set Environment variables when building the image.
 |__ENV__ | Set Environment variables that will be available in the container after building.
 
-## Deploying our First Docker Container
-~~~~
+## Building and Running a Simple Docker Container
+```bash
 # navigate to folder with images
 cd docker-intro/hello-world
-~~~~
+```
