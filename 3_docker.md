@@ -31,7 +31,7 @@ The diagram below highlights the process to build an image and run a Docker cont
 DockerHub is a library for hosting Docker images.
 <img src="img/dockerhub.png" alt="Dockerhub." height=90% width=90% />
 
-## Writing a Dockerfile
+## Key Routines when Writing a Dockerfile
 The following are key routines when creating a Dockerfile.
 
 |**Command**|**Description**|
