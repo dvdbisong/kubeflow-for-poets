@@ -159,7 +159,7 @@ Todays date is Sun Feb 24 04:45:08 UTC 2019
 |**Command**|**Description**|
 |-|-|
 |`docker ps`| List all containers. Append `-a` to also list containers not running.
-|`docker stop [CONTAINER_ID]`| Gracefully stop the containers with `[CONTAINER_ID` on the machine.
-|`docker kill CONTAINER_ID]`| Forcefully stop the containers with `[CONTAINER_ID` on the machine.
+|`docker stop [CONTAINER_ID]`| Gracefully stop the container with `[CONTAINER_ID` on the machine.
+|`docker kill CONTAINER_ID]`| Forcefully stop the container with `[CONTAINER_ID` on the machine.
 |`docker rm [CONTAINER_ID]`| Remove the container with `[CONTAINER_ID` from the machine.
 |`docker rm $(docker ps -a -q)`| Remove all containers from the machine.
