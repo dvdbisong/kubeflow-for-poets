@@ -49,11 +49,21 @@ The following are key routines when creating a Dockerfile.
 |__ENV__ | Set Environment variable as a key-value pair that will be available in the container after building.
 
 ## Building and Running a Simple Docker Container
-The Dockerfile for this containers' image is stored in `docker-intro/hello-world`.
+In this simple example, we have a bash script titled `date-script.sh`. The script assigns the current date to a variable and then prints out the date to the console. The Dockerfile will copy the script from the local machine to the docker container filesystem and execute the shell script when running the container. The Dockerfile to build the container is stored in `docker-intro/hello-world`.
 
 ```bash
 # navigate to folder with images
 cd docker-intro/hello-world
+```
+Let's view the bash script.
+```bash
+cat date-script.sh
+```
+
+```bash
+#! /bin/sh
+DATE="$(date)"
+echo "Todays date is $DATE"
 ```
 
 Let's view the Dockerfile.
@@ -65,13 +75,12 @@ cat Dockerfile
 ```bash
 FROM docker.io/alpine
 LABEL maintainer="dvdbisong@gmail.com"
-ENV DATE date
-CMD echo "Todays date is ${DATE}"
+COPY script.sh /script.sh
+CMD sh script.sh
 ```
 
-Let's break this down:
 - The Docker image will be built-off the Alpine linux package. See <a href="https://hub.docker.com/_/alpine">https://hub.docker.com/_/alpine</a>
-- When the container runs the `CMD` routines executes.
+- The `CMD` routine executes the script when the container runs.
 
 ### Build the Image
 ```bash
@@ -92,11 +101,11 @@ Step 2/4 : LABEL maintainer="dvdbisong@gmail.com"
  ---> Running in 306600656ab4
 Removing intermediate container 306600656ab4
  ---> 33beb1ebcb3c
-Step 3/4 : ENV DATE "$(date)"
+Step 3/4 : COPY script.sh /script.sh
  ---> Running in 688dc55c502a
 Removing intermediate container 688dc55c502a
  ---> dfd6517a0635
-Step 4/4 : CMD echo "Todays date is" $DATE
+Step 4/4 : CMD sh script.sh
  ---> Running in eb80136161fe
 Removing intermediate container eb80136161fe
  ---> e97c75dcc5ba
@@ -122,5 +131,5 @@ docker run ekababisong.org/first_image
 ```
 
 ```
-Todays date is date
+Todays date is Sun Feb 24 04:45:08 UTC 2019
 ```
