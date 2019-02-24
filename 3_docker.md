@@ -75,8 +75,8 @@ cat Dockerfile
 ```bash
 FROM docker.io/alpine
 LABEL maintainer="dvdbisong@gmail.com"
-COPY script.sh /script.sh
-CMD sh script.sh
+COPY date-script.sh /date-script.sh
+CMD sh date-script.sh
 ```
 
 - The Docker image will be built-off the Alpine linux package. See <a href="https://hub.docker.com/_/alpine">https://hub.docker.com/_/alpine</a>
@@ -101,11 +101,11 @@ Step 2/4 : LABEL maintainer="dvdbisong@gmail.com"
  ---> Running in 306600656ab4
 Removing intermediate container 306600656ab4
  ---> 33beb1ebcb3c
-Step 3/4 : COPY script.sh /script.sh
+Step 3/4 : COPY date-script.sh /date-script.sh
  ---> Running in 688dc55c502a
 Removing intermediate container 688dc55c502a
  ---> dfd6517a0635
-Step 4/4 : CMD sh script.sh
+Step 4/4 : CMD sh date-script.sh
  ---> Running in eb80136161fe
 Removing intermediate container eb80136161fe
  ---> e97c75dcc5ba

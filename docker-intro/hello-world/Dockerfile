@@ -1,4 +1,4 @@
 FROM docker.io/alpine
 LABEL maintainer="dvdbisong@gmail.com"
-COPY script.sh /script.sh
-CMD sh script.sh
+COPY date-script.sh /date-script.sh
+CMD sh date-script.sh
