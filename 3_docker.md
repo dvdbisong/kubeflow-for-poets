@@ -2,7 +2,14 @@
 
 Table of Contents:
 
-- [Virtual Machines vs. Containers](#virtual-machines-vs-containers)
+- [Docker](#docker)
+  - [Virtual Machines vs. Containers](#virtual-machines-vs-containers)
+  - [Working with Docker](#working-with-docker)
+  - [Introducing DockerHub](#introducing-dockerhub)
+  - [Key Routines when Writing a Dockerfile](#key-routines-when-writing-a-dockerfile)
+  - [Building and Running a Simple Docker Container](#building-and-running-a-simple-docker-container)
+    - [Build the Image](#build-the-image)
+    - [Run the Container](#run-the-container)
 
 Docker is a virtualization application that abstracts applications into isolated environments known as *containers*. The idea behind a container is to provide a unified platform that includes the software tools and dependencies for developing and deploying an application.
 
