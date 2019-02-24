@@ -28,7 +28,7 @@ The diagram below highlights the process to build an image and run a Docker cont
 <img src="img/docker_process.png" alt="Docker containerization process." height=90% width=90% />
 
 ## Introducing DockerHub
-DockerHub is a library for storing Docker images.
+DockerHub is a library for hosting Docker images.
 <img src="img/dockerhub.png" alt="Dockerhub." height=90% width=90% />
 
 ## Writing a Dockerfile
@@ -47,3 +47,9 @@ The following are key routines when creating a Dockerfile.
 |__VOLUME__ | Mount a volume from the local machine filesystem to the Docker container.
 |__ARG__ | Set Environment variables when building the image.
 |__ENV__ | Set Environment variables that will be available in the container after building.
+
+## Deploying our First Docker Container
+~~~~
+# navigate to folder with images
+cd docker-intro/hello-world
+~~~~
