@@ -58,6 +58,7 @@ cd docker-intro/hello-world
 
 Let's view the Dockerfile.
 ```bash
+# view the Dockerfile
 cat Dockerfile
 ```
 
@@ -74,10 +75,11 @@ Let's break this down:
 
 ### Build the Image
 ```bash
+# build the image
 docker build -t ekababisong.org/first_image .
 ```
 
-```text
+```
 Sending build context to Docker daemon  2.048kB
 Step 1/4 : FROM docker.io/alpine
 latest: Pulling from library/alpine
