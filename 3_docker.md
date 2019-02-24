@@ -11,6 +11,7 @@ Table of Contents:
     - [Run the Container](#run-the-container)
   - [Important Docker Commands](#important-docker-commands)
     - [Commands for Managing Images](#commands-for-managing-images)
+    - [Commands for Managing Containers](#commands-for-managing-containers)
 
 Docker is a virtualization application that abstracts applications into isolated environments known as *containers*. The idea behind a container is to provide a unified platform that includes the software tools and dependencies for developing and deploying an application.
 
@@ -153,3 +154,12 @@ Todays date is Sun Feb 24 04:45:08 UTC 2019
 |`docker images`| List all images on the machine.
 |`docker rmi [IMAGE_NAME]`| Remove the image with name `IMAGE_NAME` on the machine.
 |`docker rmi $(docker images -q)`| Remove all images from the machine.
+
+### Commands for Managing Containers
+|**Command**|**Description**|
+|-|-|
+|`docker ps`| List all containers. Append `-a` to also list containers not running.
+|`docker stop [CONTAINER_ID]`| Gracefully stop the containers with `[CONTAINER_ID` on the machine.
+|`docker kill CONTAINER_ID]`| Forcefully stop the containers with `[CONTAINER_ID` on the machine.
+|`docker rm [CONTAINER_ID]`| Remove the container with `[CONTAINER_ID` from the machine.
+|`docker rm $(docker ps -a -q)`| Remove all containers from the machine.
