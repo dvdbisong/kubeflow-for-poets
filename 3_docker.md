@@ -9,6 +9,8 @@ Table of Contents:
   - [Building and Running a Simple Docker Container](#building-and-running-a-simple-docker-container)
     - [Build the Image](#build-the-image)
     - [Run the Container](#run-the-container)
+  - [Important Docker Commands](#important-docker-commands)
+    - [Commands for Managing Images](#commands-for-managing-images)
 
 Docker is a virtualization application that abstracts applications into isolated environments known as *containers*. The idea behind a container is to provide a unified platform that includes the software tools and dependencies for developing and deploying an application.
 
@@ -143,3 +145,11 @@ docker run ekababisong.org/first_image
 ```
 Todays date is Sun Feb 24 04:45:08 UTC 2019
 ```
+
+## Important Docker Commands
+### Commands for Managing Images
+|**Command**|**Description**|
+|-|-|
+|`docker images`| List all images on the machine.
+|`docker rmi [IMAGE_NAME]`| Remove the image with name `IMAGE_NAME` on the machine.
+|`docker rmi $(docker images -q)`| Remove all images from the machine.
