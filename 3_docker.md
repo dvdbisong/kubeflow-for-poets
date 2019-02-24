@@ -79,6 +79,7 @@ Let's break this down:
 docker build -t ekababisong.org/first_image .
 ```
 
+Build output:
 ```
 Sending build context to Docker daemon  2.048kB
 Step 1/4 : FROM docker.io/alpine
@@ -91,14 +92,35 @@ Step 2/4 : LABEL maintainer="dvdbisong@gmail.com"
  ---> Running in 306600656ab4
 Removing intermediate container 306600656ab4
  ---> 33beb1ebcb3c
-Step 3/4 : ENV DATE date
+Step 3/4 : ENV DATE "$(date)"
  ---> Running in 688dc55c502a
 Removing intermediate container 688dc55c502a
  ---> dfd6517a0635
-Step 4/4 : CMD echo "Todays date is ${DATE}"
+Step 4/4 : CMD echo "Todays date is" $DATE
  ---> Running in eb80136161fe
 Removing intermediate container eb80136161fe
  ---> e97c75dcc5ba
 Successfully built e97c75dcc5ba
 Successfully tagged ekababisong.org/first_image:latest
+```
+
+### Run the Container
+```bash
+# show the images on the image
+docker images
+```
+
+```
+REPOSITORY                    TAG                 IMAGE ID            CREATED             SIZE
+ekababisong.org/first_image   latest              e97c75dcc5ba        32 minutes ago      5.52MB
+alpine                        latest              caf27325b298        3 weeks ago         5.52MB
+```
+
+```bash
+# run the docker container from the image
+docker run ekababisong.org/first_image
+```
+
+```
+Todays date is date
 ```
