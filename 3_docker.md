@@ -261,7 +261,7 @@ b3380cc02551        ekababisong.org/nginx_server   "nginx -g 'daemon of…"   7 
 ### View Webpage on the Running Server
 Open a web browser and go to: <a href="0.0.0.0:8081">0.0.0.0:8081</a>
 
-<img src="img/nginx_webpage.png" alt="Webpage on nginx webserver." height=90% width=90% />
+<img src="img/ngnix_webpage.png" alt="Webpage on ngnix webserver." height=90% width=90% />
 
 
 docker stop b0a078c35205
