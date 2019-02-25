@@ -13,7 +13,11 @@ Table of Contents:
     - [Commands for Managing Images](#commands-for-managing-images)
     - [Commands for Managing Containers](#commands-for-managing-containers)
     - [Running a Docker Container](#running-a-docker-container)
-  - [Building an `nginx` Web Server with Docker](#building-an-nginx-web-server-with-docker)
+  - [Serve a Webpage on an `nginx` Web Server with Docker](#serve-a-webpage-on-an-nginx-web-server-with-docker)
+    - [The Dockerfile](#the-dockerfile)
+    - [Build the image](#build-the-image)
+    - [Run the container](#run-the-container)
+    - [View Webpage on the Running Server](#view-webpage-on-the-running-server)
 
 Docker is a virtualization application that abstracts applications into isolated environments known as *containers*. The idea behind a container is to provide a unified platform that includes the software tools and dependencies for developing and deploying an application.
 
@@ -182,24 +186,28 @@ where,
 - `--name`: specify a name for the container.
 - `-p`: port forwarding from host to the container (i.e. host:container).
 
-## Building an `nginx` Web Server with Docker
+## Serve a Webpage on an `nginx` Web Server with Docker
 
+### The Dockerfile
 ```bash
-# build the image
-docker build -t ekababisong.org/nginx_server .
-# docker build -t ekababisong.org/nginx_server ./docker-intro/nginx-server/.
-
-# run the container
-docker run -d -it --name ebisong-ngnix -p 8081:80 ekababisong.org/nginx_server
-
-# list containers
-docker ps
-
-CONTAINER ID        IMAGE                          COMMAND                  CREATED             STATUS              PORTS                  NAMES
-b3380cc02551        ekababisong.org/nginx_server   "nginx -g 'daemon of…"   7 seconds ago       Up 4 seconds        0.0.0.0:8081->80/tcp   ebisong-ngnix
+# base image for building container
+FROM docker.io/nginx
+# add maintainer label
+LABEL maintainer="dvdbisong@gmail.com"
+# copy html file from local machine to container filesystem
+COPY index.html /usr/share/nginx/html
+# port to expose to the container
+EXPOSE 80
 ```
 
+### Build the image
+```bash
+# navigate to directory
+cd docker-intro/nginx-server/
 
+# build the image
+docker build -t ekababisong.org/nginx_server .
+```
 
 ```
 Sending build context to Docker daemon  2.048kB
@@ -225,4 +233,37 @@ Successfully built 7f8e2fe2db73
 Successfully tagged ekababisong.org/nginx_server:latest
 ```
 
+```bash
+# list images on machine
+docker images
+```
 
+```
+REPOSITORY                       TAG                 IMAGE ID            CREATED             SIZE
+ekababisong.org/nginx_server     latest              0928acf9fcbf        18 hours ago        109MB
+ekababisong.org/first_image      latest              773973d28958        20 hours ago        5.53MB
+```
+
+### Run the container
+```bash
+# run the container
+docker run -d -it --name ebisong-ngnix -p 8081:80 ekababisong.org/nginx_server
+
+# list containers
+docker ps
+```
+
+```
+CONTAINER ID        IMAGE                          COMMAND                  CREATED             STATUS              PORTS                  NAMES
+b3380cc02551        ekababisong.org/nginx_server   "nginx -g 'daemon of…"   7 seconds ago       Up 4 seconds        0.0.0.0:8081->80/tcp   ebisong-ngnix
+```
+
+### View Webpage on the Running Server
+Open a web browser and go to: <a href="0.0.0.0:8081">0.0.0.0:8081</a>
+
+<img src="img/nginx_webpage.png" alt="Webpage on nginx webserver." height=90% width=90% />
+
+
+docker stop b0a078c35205
+
+Talk about volumes
