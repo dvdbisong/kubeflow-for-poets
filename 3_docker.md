@@ -18,6 +18,8 @@ Table of Contents:
     - [Build the image](#build-the-image)
     - [Run the container](#run-the-container)
     - [View Webpage on the Running Server](#view-webpage-on-the-running-server)
+    - [Cleanup](#cleanup)
+  - [Volumes](#volumes)
 
 Docker is a virtualization application that abstracts applications into isolated environments known as *containers*. The idea behind a container is to provide a unified platform that includes the software tools and dependencies for developing and deploying an application.
 
@@ -171,7 +173,7 @@ Todays date is Sun Feb 24 04:45:08 UTC 2019
 |`docker ps`| List all containers. Append `-a` to also list containers not running.
 |`docker stop [CONTAINER_ID]`| Gracefully stop the container with `[CONTAINER_ID` on the machine.
 |`docker kill CONTAINER_ID]`| Forcefully stop the container with `[CONTAINER_ID` on the machine.
-|`docker rm [CONTAINER_ID]`| Remove the container with `[CONTAINER_ID` from the machine.
+|`docker rm [CONTAINER_ID]`| Remove the container with `[CONTAINER_ID`] from the machine.
 |`docker rm $(docker ps -a -q)`| Remove all containers from the machine.
 
 ### Running a Docker Container
@@ -263,7 +265,13 @@ Open a web browser and go to: <a href="0.0.0.0:8081">0.0.0.0:8081</a>
 
 <img src="img/ngnix_webpage.png" alt="Webpage on ngnix webserver." height=90% width=90% />
 
-
+### Cleanup
+```bash
+# shutdown the container
 docker stop b0a078c35205
 
-Talk about volumes
+# remove the container
+docker rm ebisong-ngnix
+```
+
+## Volumes
