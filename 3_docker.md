@@ -250,7 +250,7 @@ ekababisong.org/first_image      latest              773973d28958        20 hour
 ### Run the container
 ```bash
 # run the container
-docker run -d -it --name ebisong-ngnix -p 8081:80 ekababisong.org/nginx_server
+docker run -d -it --name ebisong-nginx -p 8081:80 ekababisong.org/nginx_server
 
 # list containers
 docker ps
@@ -258,13 +258,13 @@ docker ps
 
 ```
 CONTAINER ID        IMAGE                          COMMAND                  CREATED             STATUS              PORTS                  NAMES
-b3380cc02551        ekababisong.org/nginx_server   "nginx -g 'daemon of…"   7 seconds ago       Up 4 seconds        0.0.0.0:8081->80/tcp   ebisong-ngnix
+b3380cc02551        ekababisong.org/nginx_server   "nginx -g 'daemon of…"   7 seconds ago       Up 4 seconds        0.0.0.0:8081->80/tcp   ebisong-nginx
 ```
 
 ### View Webpage on the Running Server
 Open a web browser and go to: <a href="0.0.0.0:8081">0.0.0.0:8081</a>
 
-<img src="img/ngnix_webpage.png" alt="Webpage on ngnix webserver." height=90% width=90% />
+<img src="img/nginx_webpage.png" alt="Webpage on nginx webserver." height=90% width=90% />
 
 ### Cleanup
 ```bash
@@ -272,7 +272,7 @@ Open a web browser and go to: <a href="0.0.0.0:8081">0.0.0.0:8081</a>
 docker stop b3380cc02551
 
 # remove the container
-docker rm ebisong-ngnix
+docker rm ebisong-nginx
 ```
 
 ## Volumes
@@ -280,5 +280,7 @@ Local directories can be mounted as a volume to a running container, instead of 
 
 ### Mount a Volume to the Containerized `nginx` Web Server
 ```bash
-docker run -d -it --name ebisong-ngnix -p 8081:80 -v /Users/ekababisong/Documents/Talks/kubeflow-for-poets/docker-intro/nginx-server/html:/usr/share/nginx/html  ekababisong.org/nginx_server
+docker run -d -it --name ebisong-nginx -p 8081:80 -v /Users/ekababisong/Documents/Talks/kubeflow-for-poets/docker-intro/nginx-server/html:/usr/share/nginx/html  ekababisong.org/nginx_server
 ```
+
+Now whatever changes is made to the file `index.html` is immediately seen on the web browser from the `nginx` server in the Docker container.
