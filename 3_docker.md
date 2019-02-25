@@ -268,7 +268,7 @@ Open a web browser and go to: <a href="0.0.0.0:8081">0.0.0.0:8081</a>
 ### Cleanup
 ```bash
 # shutdown the container
-docker stop b0a078c35205
+docker stop b3380cc02551
 
 # remove the container
 docker rm ebisong-ngnix
