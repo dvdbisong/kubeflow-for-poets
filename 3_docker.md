@@ -13,6 +13,7 @@ Table of Contents:
     - [Commands for Managing Images](#commands-for-managing-images)
     - [Commands for Managing Containers](#commands-for-managing-containers)
     - [Running a Docker Container](#running-a-docker-container)
+  - [Building an `nginx` Web Server with Docker](#building-an-nginx-web-server-with-docker)
 
 Docker is a virtualization application that abstracts applications into isolated environments known as *containers*. The idea behind a container is to provide a unified platform that includes the software tools and dependencies for developing and deploying an application.
 
@@ -87,9 +88,13 @@ cat Dockerfile
 ```
 
 ```bash
+# base image for building container
 FROM docker.io/alpine
+# add maintainer label
 LABEL maintainer="dvdbisong@gmail.com"
+# copy script from local machine to container filesystem
 COPY date-script.sh /date-script.sh
+# execute script
 CMD sh date-script.sh
 ```
 
@@ -176,3 +181,48 @@ where,
 - `--rm`: remove the container when it exits.
 - `--name`: specify a name for the container.
 - `-p`: port forwarding from host to the container (i.e. host:container).
+
+## Building an `nginx` Web Server with Docker
+
+```bash
+# build the image
+docker build -t ekababisong.org/nginx_server .
+# docker build -t ekababisong.org/nginx_server ./docker-intro/nginx-server/.
+
+# run the container
+docker run -d -it --name ebisong-ngnix -p 8081:80 ekababisong.org/nginx_server
+
+# list containers
+docker ps
+
+CONTAINER ID        IMAGE                          COMMAND                  CREATED             STATUS              PORTS                  NAMES
+b3380cc02551        ekababisong.org/nginx_server   "nginx -g 'daemon of…"   7 seconds ago       Up 4 seconds        0.0.0.0:8081->80/tcp   ebisong-ngnix
+```
+
+
+
+```
+Sending build context to Docker daemon  2.048kB
+Step 1/4 : FROM docker.io/nginx
+latest: Pulling from library/nginx
+6ae821421a7d: Pull complete
+da4474e5966c: Pull complete
+eb2aec2b9c9f: Pull complete
+Digest: sha256:dd2d0ac3fff2f007d99e033b64854be0941e19a2ad51f174d9240dda20d9f534
+Status: Downloaded newer image for nginx:latest
+ ---> f09fe80eb0e7
+Step 2/4 : LABEL maintainer="dvdbisong@gmail.com"
+ ---> Running in 084c2484893a
+Removing intermediate container 084c2484893a
+ ---> 2ced9e52fb67
+Step 3/4 : COPY index.html /usr/share/nginx/html
+ ---> 1d9684901bd3
+Step 4/4 : EXPOSE 80
+ ---> Running in 3f5738a94220
+Removing intermediate container 3f5738a94220
+ ---> 7f8e2fe2db73
+Successfully built 7f8e2fe2db73
+Successfully tagged ekababisong.org/nginx_server:latest
+```
+
+
