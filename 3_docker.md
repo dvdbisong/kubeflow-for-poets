@@ -6,7 +6,7 @@ Table of Contents:
   - [Working with Docker](#working-with-docker)
   - [Introducing DockerHub](#introducing-dockerhub)
   - [Key Routines when Writing a Dockerfile](#key-routines-when-writing-a-dockerfile)
-  - [Building and Running a Simple Docker Container](#building-and-running-a-simple-docker-container)
+  - [Build and Run a Simple Docker Container](#build-and-run-a-simple-docker-container)
     - [Build the Image](#build-the-image)
     - [Run the Container](#run-the-container)
   - [Important Docker Commands](#important-docker-commands)
@@ -67,7 +67,7 @@ The following are key routines when creating a Dockerfile.
 |__ARG__ | Set Environment variable as a key-value pair when building the image.
 |__ENV__ | Set Environment variable as a key-value pair that will be available in the container after building.
 
-## Building and Running a Simple Docker Container
+## Build and Run a Simple Docker Container
 In this simple example, we have a bash script titled `date-script.sh`. The script assigns the current date to a variable and then prints out the date to the console. The Dockerfile will copy the script from the local machine to the docker container filesystem and execute the shell script when running the container. The Dockerfile to build the container is stored in `docker-intro/hello-world`.
 
 ```bash
