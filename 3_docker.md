@@ -20,6 +20,7 @@ Table of Contents:
     - [View Webpage on the Running Server](#view-webpage-on-the-running-server)
     - [Cleanup](#cleanup)
   - [Volumes](#volumes)
+    - [Mount a Volume to the Containerized `nginx` Web Server](#mount-a-volume-to-the-containerized-nginx-web-server)
 
 Docker is a virtualization application that abstracts applications into isolated environments known as *containers*. The idea behind a container is to provide a unified platform that includes the software tools and dependencies for developing and deploying an application.
 
@@ -197,7 +198,7 @@ FROM docker.io/nginx
 # add maintainer label
 LABEL maintainer="dvdbisong@gmail.com"
 # copy html file from local machine to container filesystem
-COPY index.html /usr/share/nginx/html
+COPY html/index.html /usr/share/nginx/html
 # port to expose to the container
 EXPOSE 80
 ```
@@ -225,7 +226,7 @@ Step 2/4 : LABEL maintainer="dvdbisong@gmail.com"
  ---> Running in 084c2484893a
 Removing intermediate container 084c2484893a
  ---> 2ced9e52fb67
-Step 3/4 : COPY index.html /usr/share/nginx/html
+Step 3/4 : COPY html/index.html /usr/share/nginx/html
  ---> 1d9684901bd3
 Step 4/4 : EXPOSE 80
  ---> Running in 3f5738a94220
@@ -275,3 +276,9 @@ docker rm ebisong-ngnix
 ```
 
 ## Volumes
+Local directories can be mounted as a volume to a running container, instead of the container filesystem itself. With volumes,the data can be shared with the container, while persisted on the local machine. Volumes are attached with the `-v` label in the `docker run` command.
+
+### Mount a Volume to the Containerized `nginx` Web Server
+```bash
+docker run -d -it --name ebisong-ngnix -p 8081:80 -v /Users/ekababisong/Documents/Talks/kubeflow-for-poets/docker-intro/nginx-server/html:/usr/share/nginx/html  ekababisong.org/nginx_server
+```
