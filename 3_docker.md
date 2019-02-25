@@ -24,7 +24,6 @@ Table of Contents:
   - [Run a Tensorflow Jupyter Image from Dockerhub](#run-a-tensorflow-jupyter-image-from-dockerhub)
     - [Pull the Image from Dockerhub](#pull-the-image-from-dockerhub)
     - [Run the Container](#run-the-container-1)
-  - [Modifying the Tensorflow Jupyter Dockerfile](#modifying-the-tensorflow-jupyter-dockerfile)
 
 Docker is a virtualization application that abstracts applications into isolated environments known as *containers*. The idea behind a container is to provide a unified platform that includes the software tools and dependencies for developing and deploying an application.
 
@@ -315,5 +314,8 @@ This command starts an *ephemeral* container running a Jupyter Notebook server a
 docker run --rm -p 8888:8888 jupyter/tensorflow-notebook
 ```
 
-## Modifying the Tensorflow Jupyter Dockerfile
-ABCD
+The image below shows a Notebook running from a Docker container.
+
+<img src="img/tf_jupyter_docker.png" alt="Notebook running from Docker." height=90% width=90% />
+
+Reclaim the local terminal by pressing `control + c`.
