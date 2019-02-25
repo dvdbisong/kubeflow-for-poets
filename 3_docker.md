@@ -1,7 +1,7 @@
 # Docker
 
 Table of Contents:
-- [Docker](#docker)
+<!-- - [Docker](#docker) -->
   - [Virtual Machines vs. Containers](#virtual-machines-vs-containers)
   - [Working with Docker](#working-with-docker)
   - [Introducing DockerHub](#introducing-dockerhub)
