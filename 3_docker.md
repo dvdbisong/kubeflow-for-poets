@@ -21,6 +21,10 @@ Table of Contents:
     - [Cleanup](#cleanup)
   - [Volumes](#volumes)
     - [Mount a Volume to the Containerized `nginx` Web Server](#mount-a-volume-to-the-containerized-nginx-web-server)
+  - [Run a Tensorflow Jupyter Image from Dockerhub](#run-a-tensorflow-jupyter-image-from-dockerhub)
+    - [Pull the Image from Dockerhub](#pull-the-image-from-dockerhub)
+    - [Run the Container](#run-the-container-1)
+  - [Modifying the Tensorflow Jupyter Dockerfile](#modifying-the-tensorflow-jupyter-dockerfile)
 
 Docker is a virtualization application that abstracts applications into isolated environments known as *containers*. The idea behind a container is to provide a unified platform that includes the software tools and dependencies for developing and deploying an application.
 
@@ -284,3 +288,32 @@ docker run -d -it --name ebisong-nginx -p 8081:80 -v /Users/ekababisong/Document
 ```
 
 Now whatever changes is made to the file `index.html` is immediately seen on the web browser from the `nginx` server in the Docker container.
+
+## Run a Tensorflow Jupyter Image from Dockerhub
+### Pull the Image from Dockerhub
+**Note:** This image is large and will take a while to pull from Dockerhub.
+```bash
+# pull the image from dockerhub
+docker pull jupyter/tensorflow-notebook
+```
+
+```
+Using default tag: latest
+latest: Pulling from jupyter/tensorflow-notebook
+a48c500ed24e: Pull complete
+...
+edbe68d32a46: Pull complete
+Digest: sha256:75f1ffa1582a67eace0f96aec95ded82ce6bf491e915af80ddc039befea926aa
+Status: Downloaded newer image for jupyter/tensorflow-notebook:latest
+```
+
+### Run the Container
+This command starts an *ephemeral* container running a Jupyter Notebook server and exposes the server on host port 8888. The server logs appear in the terminal. Visiting http://<hostname>:8888/?token=<token> in a browser loads the Jupyter Notebook dashboard page. It is *ephemeral*, because Docker destroys the container after notebook server exit. This is because of the `--rm` label in the `docker run` command.
+
+```bash
+# run the image
+docker run --rm -p 8888:8888 jupyter/tensorflow-notebook
+```
+
+## Modifying the Tensorflow Jupyter Dockerfile
+ABCD
