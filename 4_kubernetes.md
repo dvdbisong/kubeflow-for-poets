@@ -9,10 +9,10 @@ Table of Contents:
   - [Writing a Kubernetes Deployment File](#writing-a-kubernetes-deployment-file)
     - [Example of a Service Object](#example-of-a-service-object)
     - [Example of a Deployment Object](#example-of-a-deployment-object)
-  - [Deploying Kubernetes on Local Machine using Minikube](#deploying-kubernetes-on-local-machine-using-minikube)
-    - [Overview of Minikube commands](#overview-of-minikube-commands)
-    - [Overview of `kubectl` commands](#overview-of-kubectl-commands)
-    - [Using `kubectl` to deploy and manage the Kubernetes cluster](#using-kubectl-to-deploy-and-manage-the-kubernetes-cluster)
+  - [Running Kubernetes on Local Machine with Minikube](#running-kubernetes-on-local-machine-with-minikube)
+  - [Overview of Minikube commands](#overview-of-minikube-commands)
+  - [Overview of `kubectl` commands](#overview-of-kubectl-commands)
+  - [Deploying Kubernetes on local machine with Minikube Using `kubectl`](#deploying-kubernetes-on-local-machine-with-minikube-using-kubectl)
     - [Running Webpage on pod orchestrated by Kubernetes](#running-webpage-on-pod-orchestrated-by-kubernetes)
   - [Deploying Kubernetes on Google Kubernetes Engine](#deploying-kubernetes-on-google-kubernetes-engine)
 
@@ -40,7 +40,7 @@ The illustration below provides a high overview of the Kubernetes architecture. 
 
 ### Master Node(s)
 - **etcd (distributed key-store):** manages the Kubernetes cluster state. This distributed key-store can be a part of the Master node or external to it. Nevertheless, all master nodes connect to it.
-- **api server:** manages all administrative tasks. The `api server` receives commands from the user (kubectl cli,REST or GUI), these commands are executed and the new cluster state is stored in the distributed key-store.
+- **api server:** manages all administrative tasks. The `api server` receives commands from the user (`kubectl` cli,REST or GUI), these commands are executed and the new cluster state is stored in the distributed key-store.
 - **scheduler:** schedules work to worker nodes by allocating pods. It is responsible for resource allocation.
 - **controller:** ensure that the desired state of the Kubernetes cluster is maintained. The desired state is what is contained in a JSON or YAML deployment file.
 
@@ -112,7 +112,7 @@ spec:
             - containerPort: 80
 ```
 
-## Deploying Kubernetes on Local Machine using Minikube
+## Running Kubernetes on Local Machine with Minikube
 Minikube makes it easy to install and run a single-node Kubernetes cluster on a local machine. Go to <a href="https://kubernetes.io/docs/tasks/tools/install-minikube/">https://kubernetes.io/docs/tasks/tools/install-minikube/</a> for instructions on installing Minikube.
 
 1. Install a hypervisor e.g. <a href="https://www.virtualbox.org/wiki/Downloads">VirtualBox</a>.
@@ -131,7 +131,7 @@ For mac:
 brew cask install minikube
 ```
 
-### Overview of Minikube commands
+## Overview of Minikube commands
 |**Command**|**Description**|
 |-|-|
 |`minikube status`| Check if Minikube is running.
@@ -140,7 +140,7 @@ brew cask install minikube
 |`minikube ip`| get ip address of Kubernetes cluster.
 
 
-### Overview of `kubectl` commands
+## Overview of `kubectl` commands
 |**Command**|**Description**|
 |-|-|
 |`kubectl get all`| list all resources.
@@ -155,7 +155,7 @@ brew cask install minikube
 |`kubectl delete pod [POD_NAME]`| delete the pod with `[POD_NAME]`.
 
 
-### Using `kubectl` to deploy and manage the Kubernetes cluster
+## Deploying Kubernetes on local machine with Minikube Using `kubectl`
 
 ```bash
 # create local kubernetes cluster
