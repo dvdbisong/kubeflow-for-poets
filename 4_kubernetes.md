@@ -62,7 +62,7 @@ brew cask install minikube
 ```
 
 ### Using `kubectl` to deploy and manage the Kubernetes cluster
-**Overview of Minikube commands:**  
+#### Overview of Minikube commands:
 |**Command**|**Description**|
 |-|-|
 |`minikube start`| Create local kubernetes cluster.
