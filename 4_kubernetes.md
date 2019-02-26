@@ -66,7 +66,7 @@ Other important tags in writing a Kubernetes Deployment File.
 
 The deployment file is specified as a `yaml` file.
 
-The example in the next sections deploys the nginx server image that was pushed to Dockerhub in the <a href="./3_docker.md">previous section</a> to a Kubernetes cluster. The image is accessible at <a href="https://hub.docker.com/r/ekababisong/ebisong-nginx-server">https://hub.docker.com/r/ekababisong/ebisong-nginx-server</a>
+The example in the next sections deploys the nginx server image that was pushed to Dockerhub in the <a href="./3_docker.md">previous section</a> to a Kubernetes cluster. The image is accessible at <a href="https://hub.docker.com/r/ekababisong/ebisong-nginx-server">https://hub.docker.com/r/ekababisong/ebisong-nginx-server</a>.
 
 ### Example of a Service Object
 This code snippet of a `Service` object is saved in `kubernetes-intro/deployment.yaml`.
@@ -217,8 +217,9 @@ $ minikube ip
 ```
 
 #### Webpage running on pod orchestrated by Kubernetes
-Let's access the application inside the Kubernetes cluster by running <a href="192.168.99.102:30001">192.168.99.102:30001</a>. We use the port `30001` because we are accessing the application from outside the cluster.
-<br>
+Let's access the application inside the Kubernetes cluster by running <a href="192.168.99.102:30001">192.168.99.102:30001</a>. We use the port `30001` because we are accessing the application from outside the cluster.  <br><br>
+
+
 <img src="img/kubernetes_webpage.png" alt="App running on Kuberbetes." height=90% width=90% />
 
 
