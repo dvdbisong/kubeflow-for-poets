@@ -278,6 +278,28 @@ docker stop b3380cc02551
 # remove the container
 docker rm ebisong-nginx
 ```
+## Push Image to Dockerhub
+Login to Docker and provide your `userid` and `password`.
+```bash
+docker login
+```
+
+```bash
+# tag the image
+docker tag 096e538abc1e ekababisong/ebisong-nginx-server:latest
+
+# push to Dockerhub
+docker push ekababisong/ebisong-nginx-server
+```
+
+```
+The push refers to repository [docker.io/ekababisong/ebisong-nginx-server]
+db4c3e547e3f: Pushed
+6b5e2ed60418: Mounted from library/nginx
+92c15149e23b: Mounted from library/nginx
+0a07e81f5da3: Mounted from library/nginx
+latest: digest: sha256:733009c33c6cf2775fedea36a3e1032006f1fe3d5155f49d4ddc742ea1dce1f1 size: 1155
+```
 
 ## Volumes
 Local directories can be mounted as a volume to a running container, instead of the container filesystem itself. With volumes,the data can be shared with the container, while persisted on the local machine. Volumes are attached with the `-v` label in the `docker run` command.
