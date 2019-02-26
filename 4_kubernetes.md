@@ -32,3 +32,9 @@ The illustration below provides a high overview of the Kubernetes architecture. 
 - **kubelet:** the `kubelet` agent runs on each worker node. It connects the worker node to the `api server` on the master node and received instructions from it. Ensures the pods on the node are healty.
 - **kube-proxy:** it is the Kubernetes network proxy thats runs on each worker node. Listens to the `api server` and forward requests to the appropriate pod. Important for load-balancing.
 - **pod(s):** consists of one or more containers that share network and storage resources as well as container runtime instructions. Pods are the smallest deployable unit in Kubernetes.
+
+## Deploying Kubernetes on Local Machine
+ABCD
+
+## Deploying Kubernetes on Google Kubernetes Engine
+ABCD
