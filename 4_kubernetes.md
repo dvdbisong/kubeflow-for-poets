@@ -61,6 +61,15 @@ For mac:
 brew cask install minikube
 ```
 
+### Using `kubectl` to deploy and manage the Kubernetes cluster
+Overview of Minikube commands:
+|**Command**|**Description**|
+|-|-|
+|`minikube start`| Create local kubernetes cluster.
+|`minikube dashboard`| Open Minikube GUI for interacting with the Kubernetes cluster. Append `&` to open in background mode `minikube dashboard &`.
+|`minikube ip`| get ip address of Kubernetes cluster.
+
+
 
 
 ## Deploying Kubernetes on Google Kubernetes Engine
