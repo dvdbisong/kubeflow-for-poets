@@ -9,9 +9,9 @@ Kubernetes was built and released by Google as an open-source software, which is
 ## Features of Kubernetes
 - **Horizontal auto-scaling:** dynamically scales containers based on resource demands.
 - **Self-healing:** re-provisions failed nodes in response to health checks.
-- **Load balancing:** efficiently distributes requests between replicated containers or pods grouped as a service.
+- **Load balancing:** efficiently distributes requests between containers in a pod.
 - **Rollbacks and updates:** easily update or revert to a previous container deployment without causing application downtime.
--  **DNS service discovery:** Uses Domain Name System (DNS) to manage container groups (or service).
+-  **DNS service discovery:** Uses Domain Name System (DNS) to manage container groups as a Kubernetes service.
 
 ## Components of Kubernetes
 The main components of the Kubernetes engine are the:
@@ -31,4 +31,4 @@ The illustration below provides a high overview of the Kubernetes architecture. 
 ### Worker Node(s)
 - **kubelet:** the `kubelet` agent runs on each worker node. It connects the worker node to the `api server` on the master node and received instructions from it. Ensures the pods on the node are healty.
 - **kube-proxy:** it is the Kubernetes network proxy thats runs on each worker node. Listens to the `api server` and forward requests to the appropriate pod. Important for load-balancing.
-- **pod(s):** consists of one or more containers that share network and storage resources as well as container runtime instructions.
+- **pod(s):** consists of one or more containers that share network and storage resources as well as container runtime instructions. Pods are the smallest deployable unit in Kubernetes.
