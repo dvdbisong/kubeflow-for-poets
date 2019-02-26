@@ -162,19 +162,6 @@ Everything looks great. Please enjoy minikube!
 ```
 
 ```bash
-# list pods
-kubectl get pods
-```
-
-```
-NAME                   READY     STATUS             RESTARTS   AGE
-example-job-master-0   1/1       Running            0          20d
-example-job-ps-0       0/1       ImagePullBackOff   0          20d
-example-job-ps-1       0/1       ImagePullBackOff   0          5m
-example-job-worker-0   1/1       Running            0          20d
-```
-
-```bash
 # navigate to directory with deployment file
 cd kubernetes-intro/
 
@@ -185,6 +172,35 @@ kubectl create -f deployment.yaml
 ```
 service "tf-jupyter-service" created
 deployment.extensions "tf-jupyter-deployment" created
+```
+
+```bash
+# launch the minikube dashboard
+minikube dashboard
+```
+
+```
+Verifying dashboard health ...
+Launching proxy ...
+Verifying proxy health ...
+Opening http://127.0.0.1:54356/api/v1/namespaces/kube-system/services/http:kubernetes-dashboard:/proxy/ in your default browser...
+```
+
+```bash
+# list pods
+kubectl get pods
+```
+
+```
+NAME                                    READY     STATUS              RESTARTS   AGE
+example-job-master-0                    1/1       Running             0          20d
+example-job-ps-0                        0/1       ImagePullBackOff    0          20d
+example-job-worker-0                    1/1       Running             0          20d
+tf-jupyter-deployment-56f4bf4c9-7klmq   0/1       ContainerCreating   0          12m
+tf-jupyter-deployment-56f4bf4c9-d7nwt   0/1       ContainerCreating   0          12m
+tf-jupyter-deployment-56f4bf4c9-g8kt7   0/1       ContainerCreating   0          12m
+tf-jupyter-deployment-56f4bf4c9-jdkz4   0/1       ContainerCreating   0          12m
+tf-jupyter-deployment-56f4bf4c9-wngbr   0/1       ContainerCreating   0          12m
 ```
 
 ## Deploying Kubernetes on Google Kubernetes Engine
