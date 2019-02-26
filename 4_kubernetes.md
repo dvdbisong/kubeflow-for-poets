@@ -21,3 +21,4 @@ The main components of the Kubernetes engine are the:
 The illustration below provides a high overview of the Kubernetes architecture. Later, we'll briefly go through the individual sub-components.
 
 <img src="img/kubernetes_components.png" alt="Kubernetes components." height=90% width=90%/>
+
