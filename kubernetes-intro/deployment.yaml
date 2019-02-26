@@ -1,10 +1,10 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: apache-server-service
+  name: nginx-server-service
 spec:
   selector:
-    app: apache-server
+    app: nginx-server
   ports:
     - protocol: "TCP"
       # accessible inside cluster
@@ -20,16 +20,16 @@ spec:
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: apache-server-deployment
+  name: nginx-server-deployment
 spec:
   replicas: 5
   template:
     metadata:
       labels:
-        app: apache-server
+        app: nginx-server
     spec:
       containers:
-        - name: apache-server
-          image: ebisong.net/apache_server
+        - name: nginx-server
+          image: ekababisong/ebisong-nginx-server
           ports:
             - containerPort: 8080

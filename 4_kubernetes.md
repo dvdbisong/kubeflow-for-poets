@@ -65,18 +65,18 @@ Other important tags in writing a Kubernetes Deployment File.
 
 The deployment file is specified as a `yaml` file.
 
-The example in the following sections deploys the apache server image from the <a href="./3_docker.md">previous section</a>
+The example in the next sections deploys the apache server image from the <a href="./3_docker.md">previous section</a> in a Kubernetes cluster.
 
 ### Example of a Service Object
-The snippet is saved in `kubernetes-intro/deployment.yaml`.
+This code snippet of a `Service` object is saved in `kubernetes-intro/deployment.yaml`.
 ```yaml
 kind: Service
 apiVersion: v1
 metadata:
-  name: apache-server-service
+  name: nginx-server-service
 spec:
   selector:
-    app: apache-server
+    app: nginx-server
   ports:
     - protocol: "TCP"
       # accessible inside cluster
@@ -89,22 +89,22 @@ spec:
 ```
 
 ### Example of a Deployment Object
-The snippet is saved in `kubernetes-intro/deployment.yaml`.
+This code snippet of a `Deployment` object is saved in `kubernetes-intro/deployment.yaml`.
 ```yaml
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: apache-server-deployment
+  name: nginx-server-deployment
 spec:
   replicas: 5
   template:
     metadata:
       labels:
-        app: apache-server
+        app: nginx-server
     spec:
       containers:
-        - name: apache-server
-          image: ebisong.net/apache_server
+        - name: nginx-server
+          image: ekababisong/ebisong-nginx-server
           ports:
             - containerPort: 8080
 ```
@@ -172,8 +172,8 @@ kubectl create -f deployment.yaml
 ```
 
 ```
-service "tf-jupyter-service" created
-deployment.extensions "tf-jupyter-deployment" created
+service "nginx-server-service" created
+deployment.extensions "nginx-server-deployment" created
 ```
 
 ```bash
@@ -188,21 +188,20 @@ Verifying proxy health ...
 Opening http://127.0.0.1:54356/api/v1/namespaces/kube-system/services/http:kubernetes-dashboard:/proxy/ in your default browser...
 ```
 
+<img src="img/minikube_dashboard.png" alt="Minikube dashboard." height=90% width=90% />
+
 ```bash
 # list pods
 kubectl get pods
 ```
 
 ```
-NAME                                    READY     STATUS              RESTARTS   AGE
-example-job-master-0                    1/1       Running             0          20d
-example-job-ps-0                        0/1       ImagePullBackOff    0          20d
-example-job-worker-0                    1/1       Running             0          20d
-tf-jupyter-deployment-56f4bf4c9-7klmq   0/1       ContainerCreating   0          12m
-tf-jupyter-deployment-56f4bf4c9-d7nwt   0/1       ContainerCreating   0          12m
-tf-jupyter-deployment-56f4bf4c9-g8kt7   0/1       ContainerCreating   0          12m
-tf-jupyter-deployment-56f4bf4c9-jdkz4   0/1       ContainerCreating   0          12m
-tf-jupyter-deployment-56f4bf4c9-wngbr   0/1       ContainerCreating   0          12m
+NAME                                      READY     STATUS    RESTARTS   AGE
+nginx-server-deployment-f878d8679-5ptlc   1/1       Running   0          10m
+nginx-server-deployment-f878d8679-6gk26   1/1       Running   0          10m
+nginx-server-deployment-f878d8679-9hdhh   1/1       Running   0          10m
+nginx-server-deployment-f878d8679-pfm27   1/1       Running   0          10m
+nginx-server-deployment-f878d8679-rnmhw   1/1       Running   0          10m
 ```
 
 ## Deploying Kubernetes on Google Kubernetes Engine
