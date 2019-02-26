@@ -23,5 +23,7 @@ The illustration below provides a high overview of the Kubernetes architecture. 
 <img src="img/kubernetes_components.png" alt="Kubernetes components." height=90% width=90%/>
 
 ### Master Node
-- **etcd (distributed key-store)**: manages the Kubernetes cluster state. This distributed key-store can be a part of the Master node or external to it. Nevertheless, all master nodes connect to it.
-- 
+- **etcd (distributed key-store):** manages the Kubernetes cluster state. This distributed key-store can be a part of the Master node or external to it. Nevertheless, all master nodes connect to it.
+- **api server:** manages all administrative tasks. The `api server` receives commands from the user, these commands are executed and the new cluster state is stored in the distributed key-store.
+- **scheduler:** schedules work to worker nodes. It is responsible for resource allocation.
+- **controller:** ensure that the desired state of the Kubernetes cluster is maintained.
