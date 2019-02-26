@@ -162,6 +162,24 @@ Everything looks great. Please enjoy minikube!
 ```
 
 ```bash
+# list pods
+kubectl get pods
+```
+
+```
+NAME                   READY     STATUS             RESTARTS   AGE
+example-job-master-0   1/1       Running            0          20d
+example-job-ps-0       0/1       ImagePullBackOff   0          20d
+example-job-ps-1       0/1       ImagePullBackOff   0          5m
+example-job-worker-0   1/1       Running            0          20d
+```
+
+```bash
+# navigate to directory with deployment file
+cd kubernetes-intro/
+
+# create new resource from yaml file
+sudo kubectl create -f deployment.yml
 ```
 
 ## Deploying Kubernetes on Google Kubernetes Engine
