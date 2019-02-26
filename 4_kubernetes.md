@@ -146,9 +146,9 @@ brew cask install minikube
 |`kubectl get all`| list all resources.
 |`kubectl get pods`| list pods.
 |`kubectl get deployments --all-namespaces`| list deployments for all namespaces.
-|`kubectl create -f [DEPLOYMENT_FILE.yml]`| create new resource based on desired state in the `yaml` file.
-|`kubectl apply -f [DEPLOYMENT_FILE.yml]`| if resource already exists, refresh the resource based on the `yaml` file.
-|`kubectl apply -f [DEPLOYMENT_FILE.yml]`| if resource already exists, refresh the resource based on the `yaml` file.
+|`kubectl create -f [DEPLOYMENT_FILE.yaml]`| create new resource based on desired state in the `yaml` file.
+|`kubectl apply -f [DEPLOYMENT_FILE.yaml]`| if resource already exists, refresh the resource based on the `yaml` file.
+|`kubectl apply -f [DEPLOYMENT_FILE.yaml]`| if resource already exists, refresh the resource based on the `yaml` file.
 |`kubectl get nodes`| get the nodes of the Kubernetes cluster.
 |`kubectl delete deployment [DEPLOYMENT_NAME]`| delete the deployment with `[DEPLOYMENT_NAME]`.
 |`kubectl delete svc [SERVICE_NAME]`| delete the service with `[SERVICE_NAME]`.
