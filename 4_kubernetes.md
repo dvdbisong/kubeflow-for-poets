@@ -47,10 +47,11 @@ The illustration below provides a high overview of the Kubernetes architecture. 
 
 ## Writing a Kubernetes Deployment File
 The Kubernetes deployment file defines the desired state for the various Kubernetes objects. Examples of Kubernetes objects are:
-- **Pods:** a collection of one or more containers,
+- **Pods:** a collection of one or more containers.
 - **ReplicaSets:** part of the `controller` in the master node. Specifies the number of replicas of a pod that should be running at any given time. It ensures that the specified number of pods is maintained in the cluster.
-- **Deployments**, and
-- **Namespaces**.
+- **Deployments:** automatically creates `ReplicaSets`. It is also part of the `controller` in the master node. Ensures that the clusters current state matches the desired state.
+- **Service:** 
+- **Namespaces:** partition the cluster into sub-clusters to organize users into groups.
 
 ## Deploying Kubernetes on Local Machine using Minikube
 Minikube makes it easy to install and run a single-node Kubernetes cluster on a local machine. Go to <a href="https://kubernetes.io/docs/tasks/tools/install-minikube/">https://kubernetes.io/docs/tasks/tools/install-minikube/</a> for instructions on installing Minikube.
