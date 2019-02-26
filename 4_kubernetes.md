@@ -5,3 +5,19 @@ When a microservice application is deployed in production, it usually has many r
 Kubernetes is a software system that addresses the concerns of deploying, scaling and monitoring containers. Hence, it is called a *container orchestrator*.  Examples of other container orchestrators in the wild are Docker Swarm, Mesos Marathon and Hashicorp Nomad.
 
 Kubernetes was built and released by Google as an open-source software, which is now managed by the <a href="https://www.cncf.io/">Cloud Native Computing Foundation (CNCF)</a>. Google Cloud Platform offers a managed Kubernetes services called <a href="https://cloud.google.com/kubernetes-engine/">**Google Kubernetes Engine (GKE)**</a>. <a href="https://aws.amazon.com/kubernetes/">Amazon Elastic Container Service for Kubernetes (EKS)</a> also provides a  managed Kubernetes service.
+
+## Features of Kubernetes
+- Horizontal auto-scaling: dynamically scales containers based on resource demands.
+- Self-healing: re-provisions failed nodes in response to health checks.
+- Load balancing: efficiently distributes requests between replicated containers.
+- Rollbacks and updates: easily update or revert to a previous container deployment without causing application downtime.
+-  DNS service discovery: Uses Domain Name System (DNS) to manage container groups.
+
+## Components of Kubernetes
+The main components of the Kubernetes engine are the:
+- Master nodes.
+- Worker nodes
+
+The illustration below provides a high overview of the Kubernetes architecture. Later, we'll briefly go through the individual sub-components.
+
+<img src="img/kubernetes_components.png" alt="Kubernetes components."/>
