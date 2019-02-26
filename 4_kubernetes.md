@@ -10,10 +10,10 @@ Table of Contents:
     - [Example of a Service Object](#example-of-a-service-object)
     - [Example of a Deployment Object](#example-of-a-deployment-object)
   - [Deploying Kubernetes on Local Machine using Minikube](#deploying-kubernetes-on-local-machine-using-minikube)
+    - [Overview of Minikube commands](#overview-of-minikube-commands)
+    - [Overview of `kubectl` commands](#overview-of-kubectl-commands)
     - [Using `kubectl` to deploy and manage the Kubernetes cluster](#using-kubectl-to-deploy-and-manage-the-kubernetes-cluster)
-      - [Overview of Minikube commands:](#overview-of-minikube-commands)
-      - [Deploy using `kubectl`](#deploy-using-kubectl)
-      - [Webpage running on pod orchestrated by Kubernetes](#webpage-running-on-pod-orchestrated-by-kubernetes)
+    - [Running Webpage on pod orchestrated by Kubernetes](#running-webpage-on-pod-orchestrated-by-kubernetes)
   - [Deploying Kubernetes on Google Kubernetes Engine](#deploying-kubernetes-on-google-kubernetes-engine)
 
 When a microservice application is deployed in production, it usually has many running containers that need to be allocated the right amount of resources in response to user demands. Also, there is a need to ensure that the containers are online, running and are communicating with one another. The need to efficiently manage and coordinate clusters of containerized applications gave rise to Kubernetes.
@@ -131,8 +131,7 @@ For mac:
 brew cask install minikube
 ```
 
-### Using `kubectl` to deploy and manage the Kubernetes cluster
-#### Overview of Minikube commands:
+### Overview of Minikube commands
 |**Command**|**Description**|
 |-|-|
 |`minikube status`| Check if Minikube is running.
@@ -140,7 +139,23 @@ brew cask install minikube
 |`minikube dashboard`| Open Minikube GUI for interacting with the Kubernetes cluster. Append `&` to open in background mode `minikube dashboard &`.
 |`minikube ip`| get ip address of Kubernetes cluster.
 
-#### Deploy using `kubectl`
+
+### Overview of `kubectl` commands
+|**Command**|**Description**|
+|-|-|
+|`kubectl get all`| list all resources.
+|`kubectl get pods`| list pods.
+|`kubectl get deployments --all-namespaces`| list deployments for all namespaces.
+|`kubectl create -f [DEPLOYMENT_FILE.yml]`| create new resource based on desired state in the `yaml` file.
+|`kubectl apply -f [DEPLOYMENT_FILE.yml]`| if resource already exists, refresh the resource based on the `yaml` file.
+|`kubectl apply -f [DEPLOYMENT_FILE.yml]`| if resource already exists, refresh the resource based on the `yaml` file.
+|`kubectl get nodes`| get the nodes of the Kubernetes cluster.
+|`kubectl delete deployment [DEPLOYMENT_NAME]`| delete the deployment with `[DEPLOYMENT_NAME]`.
+|`kubectl delete svc [SERVICE_NAME]`| delete the service with `[SERVICE_NAME]`.
+|`kubectl delete pod [POD_NAME]`| delete the pod with `[POD_NAME]`.
+
+
+### Using `kubectl` to deploy and manage the Kubernetes cluster
 
 ```bash
 # create local kubernetes cluster
@@ -216,7 +231,7 @@ $ minikube ip
 192.168.99.102
 ```
 
-#### Webpage running on pod orchestrated by Kubernetes
+### Running Webpage on pod orchestrated by Kubernetes
 Let's access the application inside the Kubernetes cluster by running <a href="http://192.168.99.102:30001">192.168.99.102:30001</a>. We use the port `30001` because we are accessing the application from outside the cluster.
 
 <img src="img/kubernetes_webpage.png" alt="App running on Kuberbetes." height=90% width=90% />
