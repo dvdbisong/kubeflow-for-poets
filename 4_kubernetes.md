@@ -13,6 +13,7 @@ Table of Contents:
     - [Using `kubectl` to deploy and manage the Kubernetes cluster](#using-kubectl-to-deploy-and-manage-the-kubernetes-cluster)
       - [Overview of Minikube commands:](#overview-of-minikube-commands)
       - [Deploy using `kubectl`](#deploy-using-kubectl)
+      - [Webpage running on pod orchestrated by Kubernetes](#webpage-running-on-pod-orchestrated-by-kubernetes)
   - [Deploying Kubernetes on Google Kubernetes Engine](#deploying-kubernetes-on-google-kubernetes-engine)
 
 When a microservice application is deployed in production, it usually has many running containers that need to be allocated the right amount of resources in response to user demands. Also, there is a need to ensure that the containers are online, running and are communicating with one another. The need to efficiently manage and coordinate clusters of containerized applications gave rise to Kubernetes.
@@ -75,16 +76,18 @@ apiVersion: v1
 metadata:
   name: nginx-server-service
 spec:
+  # service applies to application with name `nginx-server`
   selector:
     app: nginx-server
   ports:
     - protocol: "TCP"
-      # accessible inside cluster
-      port: 8081
-      # inside the pod
-      targetPort: 8080
+      # port inside cluster
+      port: 8080
+      # forward to port inside the pod
+      targetPort: 80
       # accessible outside cluster
-      nodePort: 30002
+      nodePort: 30001
+  # load balance between 5 instances of the container application
   type: LoadBalancer
 ```
 
@@ -106,7 +109,7 @@ spec:
         - name: nginx-server
           image: ekababisong/ebisong-nginx-server
           ports:
-            - containerPort: 8080
+            - containerPort: 80
 ```
 
 ## Deploying Kubernetes on Local Machine using Minikube
@@ -177,7 +180,7 @@ deployment.extensions "nginx-server-deployment" created
 ```
 
 ```bash
-# launch the minikube dashboard
+# launch minikube dashboard
 minikube dashboard
 ```
 
@@ -203,6 +206,20 @@ nginx-server-deployment-f878d8679-9hdhh   1/1       Running   0          10m
 nginx-server-deployment-f878d8679-pfm27   1/1       Running   0          10m
 nginx-server-deployment-f878d8679-rnmhw   1/1       Running   0          10m
 ```
+
+```bash
+# get ip address of kubernetes cluster
+$ minikube ip
+```
+
+```
+192.168.99.102
+```
+
+#### Webpage running on pod orchestrated by Kubernetes
+Let's access the application inside the Kubernetes cluster by running <a href="192.168.99.102:30001">192.168.99.102:30001</a>. We use the port `30001` because we are accessing the application from outside the cluster.
+<img src="img/kubernetes_webpage.png" alt="App running on Kuberbetes." height=90% width=90% />
+
 
 ## Deploying Kubernetes on Google Kubernetes Engine
 ABCD
