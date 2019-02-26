@@ -26,15 +26,33 @@ The illustration below provides a high overview of the Kubernetes architecture. 
 - **etcd (distributed key-store):** manages the Kubernetes cluster state. This distributed key-store can be a part of the Master node or external to it. Nevertheless, all master nodes connect to it.
 - **api server:** manages all administrative tasks. The `api server` receives commands from the user (kubectl cli,REST or GUI), these commands are executed and the new cluster state is stored in the distributed key-store.
 - **scheduler:** schedules work to worker nodes by allocating pods. It is responsible for resource allocation.
-- **controller:** ensure that the desired state of the Kubernetes cluster is maintained.
+- **controller:** ensure that the desired state of the Kubernetes cluster is maintained. The desired state is what is contained in the JSON or YAML deployment file.
 
 ### Worker Node(s)
 - **kubelet:** the `kubelet` agent runs on each worker node. It connects the worker node to the `api server` on the master node and received instructions from it. Ensures the pods on the node are healty.
 - **kube-proxy:** it is the Kubernetes network proxy thats runs on each worker node. Listens to the `api server` and forward requests to the appropriate pod. Important for load-balancing.
 - **pod(s):** consists of one or more containers that share network and storage resources as well as container runtime instructions. Pods are the smallest deployable unit in Kubernetes.
 
-## Deploying Kubernetes on Local Machine
-ABCD
+## Deploying Kubernetes on Local Machine using Minikube
+Minikube makes it easy to install and run a single-node Kubernetes cluster on a local machine. Go to <a href="https://kubernetes.io/docs/tasks/tools/install-minikube/">https://kubernetes.io/docs/tasks/tools/install-minikube/</a> for instructions on installing Minikube.
+
+1. Install a hypervisor e.g. <a href="https://www.virtualbox.org/wiki/Downloads">VirtualBox</a>.
+2. Install Kubernetes Command line interface `kubectl`.
+For mac:
+```bash
+brew install kubernetes-cli
+```
+Check the installed version:
+```bash
+kubectl version
+```
+3. Install Minikube.
+For mac:
+```bash
+brew cask install minikube
+```
+
+
 
 ## Deploying Kubernetes on Google Kubernetes Engine
 ABCD
