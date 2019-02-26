@@ -1,0 +1,35 @@
+kind: Service
+apiVersion: ebisong.net/tf-jupyter-service
+metadata:
+  name: tf-jupyter-service
+spec:
+  selector:
+    app: tf-jupyter
+  ports:
+    - protocol: "TCP"
+      # Port accessible inside cluster
+      port: 8888
+      # Port to forward to inside the pod
+      targetPort: 8888
+      # Port accessible outside cluster
+      nodePort: 30002
+  type: LoadBalancer
+
+---
+
+apiVersion: ebisong.net/tf-jupyter-deployment
+kind: Deployment
+metadata:
+  name: tf-jupyter-deployment
+spec:
+  replicas: 5
+  template:
+    metadata:
+      labels:
+        app: tf-jupyter
+    spec:
+      containers:
+        - name: tf-jupyter-container
+          image: jupyter/tensorflow-notebook
+          ports:
+            - containerPort: 8888

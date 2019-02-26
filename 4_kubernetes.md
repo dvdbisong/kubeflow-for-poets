@@ -12,6 +12,7 @@ Table of Contents:
   - [Deploying Kubernetes on Local Machine using Minikube](#deploying-kubernetes-on-local-machine-using-minikube)
     - [Using `kubectl` to deploy and manage the Kubernetes cluster](#using-kubectl-to-deploy-and-manage-the-kubernetes-cluster)
       - [Overview of Minikube commands:](#overview-of-minikube-commands)
+      - [Deploy using `kubectl`](#deploy-using-kubectl)
   - [Deploying Kubernetes on Google Kubernetes Engine](#deploying-kubernetes-on-google-kubernetes-engine)
 
 When a microservice application is deployed in production, it usually has many running containers that need to be allocated the right amount of resources in response to user demands. Also, there is a need to ensure that the containers are online, running and are communicating with one another. The need to efficiently manage and coordinate clusters of containerized applications gave rise to Kubernetes.
@@ -54,7 +55,7 @@ The Kubernetes deployment file defines the desired state for the various Kuberne
 - **Deployments:** automatically creates `ReplicaSets`. It is also part of the `controller` in the master node. Ensures that the clusters current state matches the desired state.
 - **Namespaces:** partition the cluster into sub-clusters to organize users into groups.
 - **Service:** a logical group of Pods with a policy to access them.
-  - *ServiceTypes:* specifies the type of Service e.g. `ClusterIP`, `NodePort`, `LoadBalancer`, `ExternalName`. As an example, `LoadBalancer:` exposes the service externally using a cloud provider’s load balancer.
+  - *ServiceTypes:* specifies the type of Service e.g. `ClusterIP`, `NodePort`, `LoadBalancer`, `ExternalName`. As an example, `LoadBalancer` exposes the service externally using a cloud provider’s load balancer.
 
 Other important tags in writing a Kubernetes Deployment File.
 - **spec:** describes the desired state of the cluster.
@@ -65,45 +66,46 @@ Other important tags in writing a Kubernetes Deployment File.
 The deployment file is specified as a `yaml` file.
 
 ### Example of a Service Object
+The snippet is saved in `kubernetes-intro/deployment.yaml`.
 ```yaml
 kind: Service
-apiVersion: ebisong.net/tf-jupyter
+apiVersion: ebisong.net/tf-jupyter-service
 metadata:
-  name: exampleservice
+  name: tf-jupyter-service
 spec:
   selector:
-    app: myapp
+    app: tf-jupyter
   ports:
     - protocol: "TCP"
-      # Port accessible inside cluster
-      port: 8081
-      # Port to forward to inside the pod
-      targetPort: 8080
-      # Port accessible outside cluster
+      # accessible inside cluster
+      port: 8888
+      # port forward inside the pod
+      targetPort: 8888
+      # accessible outside cluster
       nodePort: 30002
   type: LoadBalancer
 ```
 
 ### Example of a Deployment Object
+The snippet is saved in `kubernetes-intro/deployment.yaml`.
 ```yaml
-apiVersion: extensions/v1beta1
+apiVersion: ebisong.net/tf-jupyter-deployment
 kind: Deployment
 metadata:
-  name: myappdeployment
+  name: tf-jupyter-deployment
 spec:
   replicas: 5
   template:
     metadata:
       labels:
-        app: myapp
+        app: tf-jupyter
     spec:
       containers:
-        - name: myapp
-          image: jamesquigley/exampleapp:v1.0.0
+        - name: tf-jupyter-container
+          image: jupyter/tensorflow-notebook
           ports:
-            - containerPort: 8080
-
-  ```
+            - containerPort: 8888
+```
 
 ## Deploying Kubernetes on Local Machine using Minikube
 Minikube makes it easy to install and run a single-node Kubernetes cluster on a local machine. Go to <a href="https://kubernetes.io/docs/tasks/tools/install-minikube/">https://kubernetes.io/docs/tasks/tools/install-minikube/</a> for instructions on installing Minikube.
@@ -133,8 +135,34 @@ brew cask install minikube
 |`minikube dashboard`| Open Minikube GUI for interacting with the Kubernetes cluster. Append `&` to open in background mode `minikube dashboard &`.
 |`minikube ip`| get ip address of Kubernetes cluster.
 
+#### Deploy using `kubectl`
 
+```bash
+# create local kubernetes cluster
+minikube start
+```
 
+```
+Starting local Kubernetes v1.13.2 cluster...
+Starting VM...
+
+Getting VM IP address...
+Moving files into cluster...
+Setting up certs...
+Connecting to cluster...
+Setting up kubeconfig...
+Stopping extra container runtimes...
+Machine exists, restarting cluster components...
+Verifying kubelet health ...
+Verifying apiserver health ....
+Kubectl is now configured to use the cluster.
+Loading cached images from config file.
+
+Everything looks great. Please enjoy minikube!
+```
+
+```bash
+```
 
 ## Deploying Kubernetes on Google Kubernetes Engine
 ABCD
