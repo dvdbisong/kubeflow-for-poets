@@ -218,6 +218,7 @@ $ minikube ip
 
 #### Webpage running on pod orchestrated by Kubernetes
 Let's access the application inside the Kubernetes cluster by running <a href="192.168.99.102:30001">192.168.99.102:30001</a>. We use the port `30001` because we are accessing the application from outside the cluster.
+<br>
 <img src="img/kubernetes_webpage.png" alt="App running on Kuberbetes." height=90% width=90% />
 
 
