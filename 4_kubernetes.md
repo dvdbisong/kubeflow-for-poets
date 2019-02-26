@@ -35,12 +35,19 @@ The illustration below provides a high overview of the Kubernetes architecture. 
 - **etcd (distributed key-store):** manages the Kubernetes cluster state. This distributed key-store can be a part of the Master node or external to it. Nevertheless, all master nodes connect to it.
 - **api server:** manages all administrative tasks. The `api server` receives commands from the user (kubectl cli,REST or GUI), these commands are executed and the new cluster state is stored in the distributed key-store.
 - **scheduler:** schedules work to worker nodes by allocating pods. It is responsible for resource allocation.
-- **controller:** ensure that the desired state of the Kubernetes cluster is maintained. The desired state is what is contained in the JSON or YAML deployment file.
+- **controller:** ensure that the desired state of the Kubernetes cluster is maintained. The desired state is what is contained in a JSON or YAML deployment file.
 
 ### Worker Node(s)
 - **kubelet:** the `kubelet` agent runs on each worker node. It connects the worker node to the `api server` on the master node and received instructions from it. Ensures the pods on the node are healty.
 - **kube-proxy:** it is the Kubernetes network proxy thats runs on each worker node. Listens to the `api server` and forward requests to the appropriate pod. Important for load-balancing.
 - **pod(s):** consists of one or more containers that share network and storage resources as well as container runtime instructions. Pods are the smallest deployable unit in Kubernetes.
+
+## Writing a Kubernetes Deployment File
+The Kubernetes deployment file defines the desired state for the various Kubernetes objects. Examples of Kubernetes objects are:
+- **Pods:** a collection of one or more containers,
+- **ReplicaSets:** part of the `controller` in the master node. Specifies the number of replicas of a pod that should be running at any given time. It ensures that the specified number of pods is maintained in the cluster.
+- **Deployments**, and
+- **Namespaces**.
 
 ## Deploying Kubernetes on Local Machine using Minikube
 Minikube makes it easy to install and run a single-node Kubernetes cluster on a local machine. Go to <a href="https://kubernetes.io/docs/tasks/tools/install-minikube/">https://kubernetes.io/docs/tasks/tools/install-minikube/</a> for instructions on installing Minikube.
