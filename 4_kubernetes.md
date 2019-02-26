@@ -65,7 +65,7 @@ Other important tags in writing a Kubernetes Deployment File.
 
 The deployment file is specified as a `yaml` file.
 
-The example in the following sections deploys the apache server image from the [previous section](#3_docker.md)
+The example in the following sections deploys the apache server image from the <a href="./3_docker.md">previous section</a>
 
 ### Example of a Service Object
 The snippet is saved in `kubernetes-intro/deployment.yaml`.
