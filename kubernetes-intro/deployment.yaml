@@ -1,5 +1,5 @@
 kind: Service
-apiVersion: ebisong.net/tf-jupyter-service
+apiVersion: v1
 metadata:
   name: tf-jupyter-service
 spec:
@@ -17,7 +17,7 @@ spec:
 
 ---
 
-apiVersion: ebisong.net/tf-jupyter-deployment
+apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   name: tf-jupyter-deployment
@@ -29,7 +29,7 @@ spec:
         app: tf-jupyter
     spec:
       containers:
-        - name: tf-jupyter-container
+        - name: tf-jupyter
           image: jupyter/tensorflow-notebook
           ports:
             - containerPort: 8888

@@ -179,7 +179,12 @@ example-job-worker-0   1/1       Running            0          20d
 cd kubernetes-intro/
 
 # create new resource from yaml file
-sudo kubectl create -f deployment.yml
+kubectl create -f deployment.yaml
+```
+
+```
+service "tf-jupyter-service" created
+deployment.extensions "tf-jupyter-deployment" created
 ```
 
 ## Deploying Kubernetes on Google Kubernetes Engine
