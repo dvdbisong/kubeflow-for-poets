@@ -19,6 +19,7 @@ Table of Contents:
     - [Run the container](#run-the-container)
     - [View Webpage on the Running Server](#view-webpage-on-the-running-server)
     - [Cleanup](#cleanup)
+  - [Push Image to Dockerhub](#push-image-to-dockerhub)
   - [Volumes](#volumes)
     - [Mount a Volume to the Containerized `nginx` Web Server](#mount-a-volume-to-the-containerized-nginx-web-server)
   - [Run a Tensorflow Jupyter Image from Dockerhub](#run-a-tensorflow-jupyter-image-from-dockerhub)
