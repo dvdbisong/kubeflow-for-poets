@@ -22,3 +22,6 @@ The illustration below provides a high overview of the Kubernetes architecture. 
 
 <img src="img/kubernetes_components.png" alt="Kubernetes components." height=90% width=90%/>
 
+### Master Node
+- **etcd (distributed key-store)**: manages the Kubernetes cluster state. This distributed key-store can be a part of the Master node or external to it. Nevertheless, all master nodes connect to it.
+- 
