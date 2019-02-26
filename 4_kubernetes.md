@@ -15,8 +15,8 @@ Kubernetes was built and released by Google as an open-source software, which is
 
 ## Components of Kubernetes
 The main components of the Kubernetes engine are the:
-- Master nodes.
-- Worker nodes
+- **Master node(s)**: manages the Kubernetes cluster. They may be more than one in High Availability mode for fault-tolerance purposes.
+- **Worker node(s)**:
 
 The illustration below provides a high overview of the Kubernetes architecture. Later, we'll briefly go through the individual sub-components.
 
