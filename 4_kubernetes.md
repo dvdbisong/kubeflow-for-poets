@@ -7,6 +7,8 @@ Table of Contents:
     - [Master Node(s)](#master-nodes)
     - [Worker Node(s)](#worker-nodes)
   - [Writing a Kubernetes Deployment File](#writing-a-kubernetes-deployment-file)
+    - [Example of a Service Object](#example-of-a-service-object)
+    - [Example of a Deployment Object](#example-of-a-deployment-object)
   - [Deploying Kubernetes on Local Machine using Minikube](#deploying-kubernetes-on-local-machine-using-minikube)
     - [Using `kubectl` to deploy and manage the Kubernetes cluster](#using-kubectl-to-deploy-and-manage-the-kubernetes-cluster)
       - [Overview of Minikube commands:](#overview-of-minikube-commands)
@@ -50,8 +52,58 @@ The Kubernetes deployment file defines the desired state for the various Kuberne
 - **Pods:** a collection of one or more containers.
 - **ReplicaSets:** part of the `controller` in the master node. Specifies the number of replicas of a pod that should be running at any given time. It ensures that the specified number of pods is maintained in the cluster.
 - **Deployments:** automatically creates `ReplicaSets`. It is also part of the `controller` in the master node. Ensures that the clusters current state matches the desired state.
-- **Service:** 
 - **Namespaces:** partition the cluster into sub-clusters to organize users into groups.
+- **Service:** a logical group of Pods with a policy to access them.
+  - *ServiceTypes:* specifies the type of Service e.g. `ClusterIP`, `NodePort`, `LoadBalancer`, `ExternalName`. As an example, `LoadBalancer:` exposes the service externally using a cloud provider’s load balancer.
+
+Other important tags in writing a Kubernetes Deployment File.
+- **spec:** describes the desired state of the cluster.
+- **metadata:** contains information of the object.
+- **labels:** used to specify attributes of objects as key-value pairs.
+- **selector:** used to select a subset of objects based on their label values.
+
+The deployment file is specified as a `yaml` file.
+
+### Example of a Service Object
+```yaml
+kind: Service
+apiVersion: ebisong.net/tf-jupyter
+metadata:
+  name: exampleservice
+spec:
+  selector:
+    app: myapp
+  ports:
+    - protocol: "TCP"
+      # Port accessible inside cluster
+      port: 8081
+      # Port to forward to inside the pod
+      targetPort: 8080
+      # Port accessible outside cluster
+      nodePort: 30002
+  type: LoadBalancer
+```
+
+### Example of a Deployment Object
+```yaml
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: myappdeployment
+spec:
+  replicas: 5
+  template:
+    metadata:
+      labels:
+        app: myapp
+    spec:
+      containers:
+        - name: myapp
+          image: jamesquigley/exampleapp:v1.0.0
+          ports:
+            - containerPort: 8080
+
+  ```
 
 ## Deploying Kubernetes on Local Machine using Minikube
 Minikube makes it easy to install and run a single-node Kubernetes cluster on a local machine. Go to <a href="https://kubernetes.io/docs/tasks/tools/install-minikube/">https://kubernetes.io/docs/tasks/tools/install-minikube/</a> for instructions on installing Minikube.
@@ -76,6 +128,7 @@ brew cask install minikube
 #### Overview of Minikube commands:
 |**Command**|**Description**|
 |-|-|
+|`minikube status`| Check if Minikube is running.
 |`minikube start`| Create local kubernetes cluster.
 |`minikube dashboard`| Open Minikube GUI for interacting with the Kubernetes cluster. Append `&` to open in background mode `minikube dashboard &`.
 |`minikube ip`| get ip address of Kubernetes cluster.
