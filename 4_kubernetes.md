@@ -65,22 +65,24 @@ Other important tags in writing a Kubernetes Deployment File.
 
 The deployment file is specified as a `yaml` file.
 
+The example in the following sections deploys the apache server image from the [previous section](#3_docker.md)
+
 ### Example of a Service Object
 The snippet is saved in `kubernetes-intro/deployment.yaml`.
 ```yaml
 kind: Service
-apiVersion: ebisong.net/tf-jupyter-service
+apiVersion: v1
 metadata:
-  name: tf-jupyter-service
+  name: apache-server-service
 spec:
   selector:
-    app: tf-jupyter
+    app: apache-server
   ports:
     - protocol: "TCP"
       # accessible inside cluster
-      port: 8888
-      # port forward inside the pod
-      targetPort: 8888
+      port: 8081
+      # inside the pod
+      targetPort: 8080
       # accessible outside cluster
       nodePort: 30002
   type: LoadBalancer
@@ -89,22 +91,22 @@ spec:
 ### Example of a Deployment Object
 The snippet is saved in `kubernetes-intro/deployment.yaml`.
 ```yaml
-apiVersion: ebisong.net/tf-jupyter-deployment
+apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: tf-jupyter-deployment
+  name: apache-server-deployment
 spec:
   replicas: 5
   template:
     metadata:
       labels:
-        app: tf-jupyter
+        app: apache-server
     spec:
       containers:
-        - name: tf-jupyter-container
-          image: jupyter/tensorflow-notebook
+        - name: apache-server
+          image: ebisong.net/apache_server
           ports:
-            - containerPort: 8888
+            - containerPort: 8080
 ```
 
 ## Deploying Kubernetes on Local Machine using Minikube
