@@ -281,6 +281,7 @@ docker rm ebisong-nginx
 ## Push Image to Dockerhub
 Login to Docker and provide your `userid` and `password`.
 ```bash
+# login to docker
 docker login
 ```
 
