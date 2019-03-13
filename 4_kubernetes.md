@@ -14,6 +14,7 @@ Table of Contents:
   - [Overview of `kubectl` commands](#overview-of-kubectl-commands)
   - [Deploying Kubernetes on a local machine with Minikube Using `kubectl`](#deploying-kubernetes-on-a-local-machine-with-minikube-using-kubectl)
     - [Running Webpage on pod orchestrated by Kubernetes](#running-webpage-on-pod-orchestrated-by-kubernetes)
+    - [Delete the Deployment and Stop Minikube](#delete-the-deployment-and-stop-minikube)
   - [Deploying Kubernetes on Google Kubernetes Engine](#deploying-kubernetes-on-google-kubernetes-engine)
     - [Creating a GKE Cluster](#creating-a-gke-cluster)
     - [Deploy an Nginx Web Server on GKE](#deploy-an-nginx-web-server-on-gke)
@@ -141,6 +142,7 @@ brew cask install minikube
 |-|-|
 |`minikube status`| Check if Minikube is running.
 |`minikube start`| Create local kubernetes cluster.
+|`minikube stop`| Stop a running local kubernetes cluster.
 |`minikube dashboard`| Open Minikube GUI for interacting with the Kubernetes cluster. Append `&` to open in background mode `minikube dashboard &`.
 |`minikube ip`| get ip address of Kubernetes cluster.
 
@@ -242,6 +244,24 @@ Let's access the application inside the Kubernetes cluster by running <a href="h
 
 <img src="img/kubernetes_webpage.png" alt="App running on Kuberbetes." height=90% width=90% />
 
+### Delete the Deployment and Stop Minikube
+```bash
+kubectl delete -f deployment.yaml
+```
+```
+service "nginx-server-service" deleted
+deployment.extensions "nginx-server-deployment" deleted
+```
+
+```bash
+# stop minikube
+minikube stop
+```
+
+```
+Stopping local Kubernetes cluster...
+Machine stopped.
+```
 
 ## Deploying Kubernetes on Google Kubernetes Engine
 To create and deploy resources on GCP from the local shell, the Google Command line SDK `gcloud` will have to be installed and configured. If this is not the case on your machine, follow the instructions at <a href="https://cloud.google.com/sdk/gcloud/">https://cloud.google.com/sdk/gcloud/</a>. Otherwise, a simpler option is to use the Google Cloud Shell which already has `gcloud` and `kubectl` (the Kubernetes Command line interface) installed.
