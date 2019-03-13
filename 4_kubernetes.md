@@ -1,7 +1,7 @@
 # Kubernetes (K8s)
 
 Table of Contents:
-- [Kubernetes (K8s)](#kubernetes-k8s)
+<!-- - [Kubernetes (K8s)](#kubernetes-k8s) -->
   - [Features of Kubernetes](#features-of-kubernetes)
   - [Components of Kubernetes](#components-of-kubernetes)
     - [Master Node(s)](#master-nodes)
