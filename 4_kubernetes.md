@@ -246,6 +246,7 @@ Let's access the application inside the Kubernetes cluster by running <a href="h
 
 ### Delete the Deployment and Stop Minikube
 ```bash
+# delete the deployment
 kubectl delete -f deployment.yaml
 ```
 ```
