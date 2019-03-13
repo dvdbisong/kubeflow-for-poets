@@ -238,4 +238,4 @@ Let's access the application inside the Kubernetes cluster by running <a href="h
 
 
 ## Deploying Kubernetes on Google Kubernetes Engine
-ABCD
+To create and deploy resources on GCP from the local shell, the Google Command line SDK `gcloud` will have to be installed abd configured. If this is not the case on your machine, plesae follow the instructions <a href="https://cloud.google.com/sdk/gcloud/">here</a>. Otherwise, a simpler option is to use the Google Cloud Shell which already had `gcloud` and `kubectl` (the Kubernetes Command line interface) installed.
