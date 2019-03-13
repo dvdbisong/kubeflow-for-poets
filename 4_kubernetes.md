@@ -16,6 +16,7 @@ Table of Contents:
     - [Running Webpage on pod orchestrated by Kubernetes](#running-webpage-on-pod-orchestrated-by-kubernetes)
   - [Deploying Kubernetes on Google Kubernetes Engine](#deploying-kubernetes-on-google-kubernetes-engine)
     - [Creating a GKE Cluster](#creating-a-gke-cluster)
+    - [Deploy an Nginx Web Server on GKE](#deploy-an-nginx-web-server-on-gke)
 
 When a microservice application is deployed in production, it usually has many running containers that need to be allocated the right amount of resources in response to user demands. Also, there is a need to ensure that the containers are online, running and are communicating with one another. The need to efficiently manage and coordinate clusters of containerized applications gave rise to Kubernetes.
 
@@ -146,10 +147,11 @@ brew cask install minikube
 |-|-|
 |`kubectl get all`| list all resources.
 |`kubectl get pods`| list pods.
+|`kubectl get service`| list services.
 |`kubectl get deployments --all-namespaces`| list deployments for all namespaces.
 |`kubectl create -f [DEPLOYMENT_FILE.yaml]`| create new resource based on desired state in the `yaml` file.
 |`kubectl apply -f [DEPLOYMENT_FILE.yaml]`| if resource already exists, refresh the resource based on the `yaml` file.
-|`kubectl apply -f [DEPLOYMENT_FILE.yaml]`| if resource already exists, refresh the resource based on the `yaml` file.
+|`kubectl delete -f [DEPLOYMENT_FILE.yaml]`| remove all resources from the `yaml` file.
 |`kubectl get nodes`| get the nodes of the Kubernetes cluster.
 |`kubectl delete deployment [DEPLOYMENT_NAME]`| delete the deployment with `[DEPLOYMENT_NAME]`.
 |`kubectl delete svc [SERVICE_NAME]`| delete the service with `[SERVICE_NAME]`.
@@ -242,7 +244,6 @@ Let's access the application inside the Kubernetes cluster by running <a href="h
 To create and deploy resources on GCP from the local shell, the Google Command line SDK `gcloud` will have to be installed abd configured. If this is not the case on your machine, follow the instructions at <a href="https://cloud.google.com/sdk/gcloud/">https://cloud.google.com/sdk/gcloud/</a>. Otherwise, a simpler option is to use the Google Cloud Shell which already has `gcloud` and `kubectl` (the Kubernetes Command line interface) installed.
 
 
-
 ### Creating a GKE Cluster
 ```bash
 # cretae a GKE cluster
@@ -262,3 +263,55 @@ ekaba-gke-cluster  us-central1-a  1.11.7-gke.4    35.226.72.40  n1-standard-1  1
 <img src="img/kubernetes_cluster.png" alt="Kuberbetes Cluster on GCP." height=90% width=90% />
 
 To learn more about creating clusters with Google Kubernetes Engine, visit <a href="https://cloud.google.com/kubernetes-engine/docs/how-to/creating-a-cluster">https://cloud.google.com/kubernetes-engine/docs/how-to/creating-a-cluster</a>.
+
+```bash
+# get the nodes of the kubernetes cluster on GKE
+kubectl get nodes
+```
+
+```
+NAME                                               STATUS    ROLES     AGE       VERSION
+gke-ekaba-gke-cluster-default-pool-e28c64e0-8fk1   Ready     <none>    45m       v1.11.7-gke.4
+gke-ekaba-gke-cluster-default-pool-e28c64e0-fmck   Ready     <none>    45m       v1.11.7-gke.4
+gke-ekaba-gke-cluster-default-pool-e28c64e0-zzz1   Ready     <none>    45m       v1.11.7-gke.4
+```
+
+### Deploy an Nginx Web Server on GKE
+```bash
+# navigate to directory with deployment file
+cd kubernetes-intro/
+
+# create new resource from yaml file
+kubectl create -f deployment.yaml
+```
+
+```
+service "nginx-server-service" created
+deployment.extensions "nginx-server-deployment" created
+```
+
+The deployment details can be seen on the GCP Kubernetes Engine console:
+
+**Workloads on Kubernetes Engine console**
+<img src="img/kubernetes_engine_console.png" alt="Kuberbetes Engine console." height=90% width=90% />
+
+**Deployment details on GKE console**
+<img src="img/deployment_details_1.png" alt="Deployment Details Page 1." height=90% width=90% />
+
+<img src="img/deployment_details_2.png" alt="Deployment Details Page 2." height=90% width=90% />
+
+
+**List pods**
+```bash
+# list pods
+kubectl get pods
+```
+
+```
+NAME                                       READY     STATUS    RESTARTS   AGE
+nginx-server-deployment-6d4cf7bb78-4swcb   1/1       Running   0          41m
+nginx-server-deployment-6d4cf7bb78-5cdqc   1/1       Running   0          41m
+nginx-server-deployment-6d4cf7bb78-bkjrp   1/1       Running   0          41m
+nginx-server-deployment-6d4cf7bb78-d8b2l   1/1       Running   0          41m
+nginx-server-deployment-6d4cf7bb78-mhpss   1/1       Running   0          41m
+```
