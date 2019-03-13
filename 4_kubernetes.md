@@ -12,7 +12,7 @@ Table of Contents:
   - [Running Kubernetes on Local Machine with Minikube](#running-kubernetes-on-local-machine-with-minikube)
   - [Overview of Minikube commands](#overview-of-minikube-commands)
   - [Overview of `kubectl` commands](#overview-of-kubectl-commands)
-  - [Deploying Kubernetes on local machine with Minikube Using `kubectl`](#deploying-kubernetes-on-local-machine-with-minikube-using-kubectl)
+  - [Deploying Kubernetes on a local machine with Minikube Using `kubectl`](#deploying-kubernetes-on-a-local-machine-with-minikube-using-kubectl)
     - [Running Webpage on pod orchestrated by Kubernetes](#running-webpage-on-pod-orchestrated-by-kubernetes)
   - [Deploying Kubernetes on Google Kubernetes Engine](#deploying-kubernetes-on-google-kubernetes-engine)
     - [Creating a GKE Cluster](#creating-a-gke-cluster)
@@ -39,7 +39,7 @@ The main components of the Kubernetes engine are the:
 - **Master node(s)**: manages the Kubernetes cluster. They may be more than one master node in High Availability mode for fault-tolerance purposes. In this case, only one is the master, and the others follow.
 - **Worker node(s)**: machine(s) that runs containerized applications that are scheduled as pod(s).
 
-The illustration below provides a high overview of the Kubernetes architecture. Later, we'll briefly go through the individual sub-components.
+The illustration below provides an overview of the Kubernetes architecture. Later, we'll briefly go through the individual sub-components.
 
 <img src="img/kubernetes_components.png" alt="Kubernetes components." height=90% width=90%/>
 
@@ -50,8 +50,8 @@ The illustration below provides a high overview of the Kubernetes architecture. 
 - **controller:** ensure that the desired state of the Kubernetes cluster is maintained. The desired state is what is contained in a JSON or YAML deployment file.
 
 ### Worker Node(s)
-- **kubelet:** the `kubelet` agent runs on each worker node. It connects the worker node to the `api server` on the master node and received instructions from it. Ensures the pods on the node are healty.
-- **kube-proxy:** it is the Kubernetes network proxy thats runs on each worker node. Listens to the `api server` and forward requests to the appropriate pod. Important for load-balancing.
+- **kubelet:** the `kubelet` agent runs on each worker node. It connects the worker node to the `api server` on the master node and received instructions from it. Ensures the pods on the node are healthy.
+- **kube-proxy:** it is the Kubernetes network proxy that runs on each worker node. It listens to the `api server` and forward requests to the appropriate pod. Important for load-balancing.
 - **pod(s):** consists of one or more containers that share network and storage resources as well as container runtime instructions. Pods are the smallest deployable unit in Kubernetes.
 
 ## Writing a Kubernetes Deployment File
@@ -81,7 +81,7 @@ apiVersion: v1
 metadata:
   name: nginx-server-service
 spec:
-  # service applies to application with name `nginx-server`
+  # service applies to the application with name `nginx-server`
   selector:
     app: nginx-server
   ports:
@@ -152,8 +152,8 @@ brew cask install minikube
 |`kubectl get pods`| list pods.
 |`kubectl get service`| list services.
 |`kubectl get deployments --all-namespaces`| list deployments for all namespaces.
-|`kubectl create -f [DEPLOYMENT_FILE.yaml]`| create new resource based on desired state in the `yaml` file.
-|`kubectl apply -f [DEPLOYMENT_FILE.yaml]`| if resource already exists, refresh the resource based on the `yaml` file.
+|`kubectl create -f [DEPLOYMENT_FILE.yaml]`| create a new resource based on the desired state in the `yaml` file.
+|`kubectl apply -f [DEPLOYMENT_FILE.yaml]`| if the resource already exists, refresh the resource based on the `yaml` file.
 |`kubectl delete -f [DEPLOYMENT_FILE.yaml]`| remove all resources from the `yaml` file.
 |`kubectl get nodes`| get the nodes of the Kubernetes cluster.
 |`kubectl delete deployment [DEPLOYMENT_NAME]`| delete the deployment with `[DEPLOYMENT_NAME]`.
@@ -161,7 +161,7 @@ brew cask install minikube
 |`kubectl delete pod [POD_NAME]`| delete the pod with `[POD_NAME]`.
 
 
-## Deploying Kubernetes on local machine with Minikube Using `kubectl`
+## Deploying Kubernetes on a local machine with Minikube Using `kubectl`
 
 ```bash
 # create local kubernetes cluster
@@ -188,10 +188,10 @@ Everything looks great. Please enjoy minikube!
 ```
 
 ```bash
-# navigate to directory with deployment file
+# navigate to the directory with deployment file
 cd kubernetes-intro/
 
-# create new resource from yaml file
+# create a new resource from yaml file
 kubectl create -f deployment.yaml
 ```
 
@@ -244,12 +244,12 @@ Let's access the application inside the Kubernetes cluster by running <a href="h
 
 
 ## Deploying Kubernetes on Google Kubernetes Engine
-To create and deploy resources on GCP from the local shell, the Google Command line SDK `gcloud` will have to be installed abd configured. If this is not the case on your machine, follow the instructions at <a href="https://cloud.google.com/sdk/gcloud/">https://cloud.google.com/sdk/gcloud/</a>. Otherwise, a simpler option is to use the Google Cloud Shell which already has `gcloud` and `kubectl` (the Kubernetes Command line interface) installed.
+To create and deploy resources on GCP from the local shell, the Google Command line SDK `gcloud` will have to be installed and configured. If this is not the case on your machine, follow the instructions at <a href="https://cloud.google.com/sdk/gcloud/">https://cloud.google.com/sdk/gcloud/</a>. Otherwise, a simpler option is to use the Google Cloud Shell which already has `gcloud` and `kubectl` (the Kubernetes Command line interface) installed.
 
 
 ### Creating a GKE Cluster
 ```bash
-# cretae a GKE cluster
+# create a GKE cluster
 gcloud container clusters create ekaba-gke-cluster
 ```
 
