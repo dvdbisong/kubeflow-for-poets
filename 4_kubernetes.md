@@ -17,6 +17,9 @@ Table of Contents:
   - [Deploying Kubernetes on Google Kubernetes Engine](#deploying-kubernetes-on-google-kubernetes-engine)
     - [Creating a GKE Cluster](#creating-a-gke-cluster)
     - [Deploy an Nginx Web Server on GKE](#deploy-an-nginx-web-server-on-gke)
+    - [Application Running on GKE](#application-running-on-gke)
+    - [Delete the Deployment on GKE](#delete-the-deployment-on-gke)
+    - [Delete the Kubernetes Cluster on GKE](#delete-the-kubernetes-cluster-on-gke)
 
 When a microservice application is deployed in production, it usually has many running containers that need to be allocated the right amount of resources in response to user demands. Also, there is a need to ensure that the containers are online, running and are communicating with one another. The need to efficiently manage and coordinate clusters of containerized applications gave rise to Kubernetes.
 
@@ -314,4 +317,47 @@ nginx-server-deployment-6d4cf7bb78-5cdqc   1/1       Running   0          41m
 nginx-server-deployment-6d4cf7bb78-bkjrp   1/1       Running   0          41m
 nginx-server-deployment-6d4cf7bb78-d8b2l   1/1       Running   0          41m
 nginx-server-deployment-6d4cf7bb78-mhpss   1/1       Running   0          41m
+```
+
+**Get External IP of Pod Deployment on GKE**
+```bash
+# get kubernetes service
+kubectl get service
+```
+```
+NAME                   TYPE           CLUSTER-IP      EXTERNAL-IP      PORT(S)          AGE
+kubernetes             ClusterIP      10.23.240.1     <none>           443/TCP          1h
+nginx-server-service   LoadBalancer   10.23.248.194   35.188.151.138   8080:30001/TCP   57m
+```
+
+### Application Running on GKE
+Access the deployed application on GKE by running <a href="35.188.151.138:8080">35.188.151.138:8080</a>.
+
+<img src="img/application_GKE.png" alt="Application on GKE." height=90% width=90% />
+
+### Delete the Deployment on GKE
+```bash
+# delete the deployment
+kubectl delete -f deployment.yaml
+```
+
+```
+service "nginx-server-service" deleted
+deployment.extensions "nginx-server-deployment" deleted
+```
+
+### Delete the Kubernetes Cluster on GKE
+```bash
+# delete the kubernetes cluster
+gcloud container clusters delete ekaba-gke-cluster
+```
+
+```
+The following clusters will be deleted.
+ - [ekaba-gke-cluster] in [us-central1-a]
+
+Do you want to continue (Y/n)?  Y
+
+Deleting cluster ekaba-gke-cluster...done.
+Deleted [https://container.googleapis.com/v1/projects/oceanic-sky-230504/zones/us-central1-a/clusters/ekaba-gke-cluster].
 ```
