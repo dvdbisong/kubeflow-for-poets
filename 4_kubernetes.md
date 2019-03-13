@@ -15,12 +15,13 @@ Table of Contents:
   - [Deploying Kubernetes on local machine with Minikube Using `kubectl`](#deploying-kubernetes-on-local-machine-with-minikube-using-kubectl)
     - [Running Webpage on pod orchestrated by Kubernetes](#running-webpage-on-pod-orchestrated-by-kubernetes)
   - [Deploying Kubernetes on Google Kubernetes Engine](#deploying-kubernetes-on-google-kubernetes-engine)
+    - [Creating a GKE Cluster](#creating-a-gke-cluster)
 
 When a microservice application is deployed in production, it usually has many running containers that need to be allocated the right amount of resources in response to user demands. Also, there is a need to ensure that the containers are online, running and are communicating with one another. The need to efficiently manage and coordinate clusters of containerized applications gave rise to Kubernetes.
 
 Kubernetes is a software system that addresses the concerns of deploying, scaling and monitoring containers. Hence, it is called a *container orchestrator*.  Examples of other container orchestrators in the wild are Docker Swarm, Mesos Marathon and Hashicorp Nomad.
 
-Kubernetes was built and released by Google as an open-source software, which is now managed by the <a href="https://www.cncf.io/">Cloud Native Computing Foundation (CNCF)</a>. Google Cloud Platform offers a managed Kubernetes services called <a href="https://cloud.google.com/kubernetes-engine/">**Google Kubernetes Engine (GKE)**</a>. <a href="https://aws.amazon.com/kubernetes/">Amazon Elastic Container Service for Kubernetes (EKS)</a> also provides a  managed Kubernetes service.
+Kubernetes was built and released by Google as an open-source software, which is now managed by the <a href="https://www.cncf.io/">Cloud Native Computing Foundation (CNCF)</a>. Google Cloud Platform offers a managed Kubernetes services called <a href="https://cloud.google.com/kubernetes-engine/">**Google Kubernetes Engine (GKE)**</a>. <a href="https://aws.amazon.com/kubernetes/">Amazon Elastic Container Service for Kubernetes (EKS)</a> also provides a managed Kubernetes service.
 
 ## Features of Kubernetes
 - **Horizontal auto-scaling:** dynamically scales containers based on resource demands.
@@ -238,4 +239,26 @@ Let's access the application inside the Kubernetes cluster by running <a href="h
 
 
 ## Deploying Kubernetes on Google Kubernetes Engine
-To create and deploy resources on GCP from the local shell, the Google Command line SDK `gcloud` will have to be installed abd configured. If this is not the case on your machine, plesae follow the instructions <a href="https://cloud.google.com/sdk/gcloud/">here</a>. Otherwise, a simpler option is to use the Google Cloud Shell which already had `gcloud` and `kubectl` (the Kubernetes Command line interface) installed.
+To create and deploy resources on GCP from the local shell, the Google Command line SDK `gcloud` will have to be installed abd configured. If this is not the case on your machine, follow the instructions at <a href="https://cloud.google.com/sdk/gcloud/">https://cloud.google.com/sdk/gcloud/</a>. Otherwise, a simpler option is to use the Google Cloud Shell which already has `gcloud` and `kubectl` (the Kubernetes Command line interface) installed.
+
+
+
+### Creating a GKE Cluster
+```bash
+# cretae a GKE cluster
+gcloud container clusters create ekaba-gke-cluster
+```
+
+A Kubernetes cluster is created on GCP with 3 nodes (as default).
+```
+Creating cluster ekaba-gke-cluster in us-central1-a... Cluster is being deployed...done.
+Created [https://container.googleapis.com/v1/projects/oceanic-sky-230504/zones/us-central1-a/clusters/ekaba-gke-cluster].
+To inspect the contents of your cluster, go to: https://console.cloud.google.com/kubernetes/workload_/gcloud/us-central1-a/ekaba-gke-cluster?project=oceanic-sky-230504
+kubeconfig entry generated for ekaba-gke-cluster.
+NAME               LOCATION       MASTER_VERSION  MASTER_IP     MACHINE_TYPE   NODE_VERSION  NUM_NODES  STATUS
+ekaba-gke-cluster  us-central1-a  1.11.7-gke.4    35.226.72.40  n1-standard-1  1.11.7-gke.4  3          RUNNING
+```
+
+<img src="img/kubernetes_cluster.png" alt="Kuberbetes Cluster on GCP." height=90% width=90% />
+
+To learn more about creating clusters with Google Kubernetes Engine, visit <a href="https://cloud.google.com/kubernetes-engine/docs/how-to/creating-a-cluster">https://cloud.google.com/kubernetes-engine/docs/how-to/creating-a-cluster</a>.
