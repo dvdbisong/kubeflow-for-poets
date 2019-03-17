@@ -11,8 +11,7 @@ The goal of Kubeflow is to abstract away the technicalities of managing a Kubern
 
 ## Working with Kubeflow
 Kubeflow consists of some core components:
-- TF Job Operator and Controller: For automatic configuration of master and worker nodes and workload deployment. 
-- TF Hub: Instances of JupyterHub for rapid prototyping with Jupyter notebooks.
-- Model Server: Platform for deploying Tensorflow models for inference.
+
+<img src="img/kubeflow-components.png" alt="Kubeflow components." height=90% width=90% />
 
 ## Setting-up Kubeflow
