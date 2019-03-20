@@ -169,6 +169,10 @@ kubectl -n kubeflow get  all
 Kubeflow is available at the url: https://ekaba-kubeflow-app.endpoints.oceanic-sky-230504.cloud.goog/
 **Note:** It can take 10-15 minutes for the URI to become available. Kubeflow needs to provision a signed SSL certificate and register a DNS name.
 
+**The Kubeflow Homescreen**
+
+<img src="img/kubeflow-homescreen.png" alt="Kubeflow Homescreen." height=90% width=90% />
+
 ## Delete Resources
 
 ### Remove Kubeflow
@@ -179,11 +183,6 @@ cd ${KFAPP}
 # run script to delete the deployment
 ${KUBEFLOW_SRC}/scripts/kfctl.sh delete all
 ```
-
-**The Kubeflow Homescreen**
-
-<img src="img/kubeflow-homescreen.png" alt="Kubeflow Homescreen." height=90% width=90% />
-
 
 ### Remove the Kubernetes Cluster
 ```bash
