@@ -1,9 +1,9 @@
 # Kubeflow
 
 Table of Contents:
-- [Kubeflow](#kubeflow)
+<!-- - [Kubeflow](#kubeflow) -->
   - [Working with Kubeflow](#working-with-kubeflow)
-    - [Set-up a Kubernetes cluster](#set-up-a-kubernetes-cluster)
+    - [Set-up a Kubernetes cluster on GKE](#set-up-a-kubernetes-cluster-on-gke)
     - [Create OAuth client ID to identify Cloud IAP](#create-oauth-client-id-to-identify-cloud-iap)
     - [Download kfctl.sh](#download-kfctlsh)
     - [Deploy Kubeflow](#deploy-kubeflow)
@@ -20,7 +20,7 @@ Kubeflow consists of some core components:
 
 <img src="img/kubeflow-components.png" alt="Kubeflow components." height=90% width=90% />
 
-### Set-up a Kubernetes cluster
+### Set-up a Kubernetes cluster on GKE
 ```bash
 # create a GKE cluster
 gcloud container clusters create ekaba-gke-cluster
