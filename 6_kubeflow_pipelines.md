@@ -12,7 +12,7 @@ Kubeflow Pipelines is a core component of Kubeflow and is also deployed when Kub
 <img src="img/kubeflow-pipelines-dashboard.png" alt="OAuth consent screen." height=90% width=90% />
 
 ## Components of Kubeflow Pipelines
-Pipelines taken together describe a Machine Learning workflow, where each component of the pipeline is a self-contained set of codes that are packaged as Docker images. Each pipeline can be uploaded individually and shared on the Kubeflow Pipelines User Interface (UI).
+A Pipeline describes a Machine Learning workflow, where each component of the pipeline is a self-contained set of codes that are packaged as Docker images. Each pipeline can be uploaded individually and shared on the Kubeflow Pipelines User Interface (UI). A pipeline takes inputs (parameters) required to run the pipeline and the inputs and outputs of each component.
 
 The Kubeflow Pipelines platform consists of:
 - A user interface (UI) for managing and tracking experiments, jobs, and runs.
