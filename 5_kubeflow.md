@@ -13,7 +13,7 @@ Table of Contents:
 
 Kubeflow is a platform that is created to enhance and simplify the process of deploying machine learning workflows on Kubernetes. Using Kubeflow, it becomes easier to manage a distributed machine learning deployment by placing components in the deployment pipeline such as the training, serving, monitoring and logging components into containers on the Kubernetes cluster.
 
-The goal of Kubeflow is to abstract away the technicalities of managing a Kubernetes cluster so that a machine learning practitioner can quickly leverage the power of Kubernetes and the benefits of deploying products within a microservices framework. Kubeflow has its history as an internal Google framework for deploying machine learning pipelines on Kubernetes before being open-sourced late 2017.
+The goal of Kubeflow is to abstract away the technicalities of managing a Kubernetes cluster so that a machine learning practitioner can quickly leverage the power of Kubernetes and the benefits of deploying products within a microservices framework. Kubeflow has its history as an internal Google framework for implementing machine learning pipelines on Kubernetes before being open-sourced late 2017.
 
 ## Working with Kubeflow
 Kubeflow consists of some core components:
@@ -48,7 +48,7 @@ gke-ekaba-gke-cluster-default-pool-0f55a72b-g4w8   Ready     <none>    4m       
 ```
 
 ### Create OAuth client ID to identify Cloud IAP
-Kubeflow uses Cloud Identity-Aware Proxy (Cloud IAP) to securely connect to Jupyter and other running web apps. Kubeflow uses email addressses for authentication. In this section, we'll create an OAuth client ID which will be used to identify Cloud IAP when requesting access to a user’s email account.
+Kubeflow uses Cloud Identity-Aware Proxy (Cloud IAP) to connect to Jupyter and other running web apps securely. Kubeflow uses email addresses for authentication. In this section, we'll create an OAuth client ID which will be used to identify Cloud IAP when requesting access to a user’s email account.
 
 - Go to the <a href="https://console.cloud.google.com/apis/credentials">APIs & Services -> Credentials</a> page in GCP Console.
 - Go to the OAuth consent screen.
