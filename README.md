@@ -19,8 +19,7 @@ The content is arranged as follows:
 - <a href="./4_kubernetes.md">Kubernetes</a>
 - <a href="./5_kubeflow.md">Kubeflow</a>
 - <a href="./6_kubeflow_pipelines.md">Kubeflow Pipelines</a>
-- <a href="./7_ml_prototype_kubernetes.md">Develop Machine Learning Prototypes on Kubernetes</a>
-- <a href="./8_orchestrate_ml_kubeflow.md">Orchestrate Machine Learning Production Flow with Kubeflow Pipelines</a>
+- <a href="./7_end_to_end_kubeflow_pipelines.md">Deploying an End-to-End Machine Learning Solution on Kubeflow Pipelines</a>
 
 ## Links:
  - <a href="https://www.docker.com/">Docker</a>
