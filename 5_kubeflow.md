@@ -175,17 +175,4 @@ Kubeflow is available at the url: https://ekaba-kubeflow-app.endpoints.oceanic-s
 
 ## Delete Resources
 
-### Remove Kubeflow
-```bash
-# navigate to kubeflow app
-cd ${KFAPP}
-
-# run script to delete the deployment
-${KUBEFLOW_SRC}/scripts/kfctl.sh delete all
-```
-
-### Remove the Kubernetes Cluster
-```bash
-# delete the kubernetes cluster
-gcloud container clusters delete ekaba-gke-cluster
-```
+See the end of <a href="./6_kubeflow_pipelines.md">Kubeflow Pipelines</a> to delete billable GCP resources.

@@ -1,9 +1,12 @@
 # Kubeflow Pipelines
 
 Table of Contents:
-- [Kubeflow Pipelines](#kubeflow-pipelines)
+<!-- - [Kubeflow Pipelines](#kubeflow-pipelines) -->
   - [Components of Kubeflow Pipelines](#components-of-kubeflow-pipelines)
   - [Executing a Sample Pipeline](#executing-a-sample-pipeline)
+  - [Delete Resources](#delete-resources)
+    - [Remove Kubeflow](#remove-kubeflow)
+    - [Remove the Kubernetes Cluster](#remove-the-kubernetes-cluster)
 
 Kubeflow Pipelines is a simple platform for building and deploying containerized machine learning workflows on Kubernetes. Kubeflow pipelines make it easy to implement production grade machine learning pipelines without bothering on the low-level details of managing a Kubernetes cluster.
 
@@ -42,3 +45,20 @@ The Kubeflow Pipelines platform consists of:
 5. Click on the **Run Name** to start the Run.
 
 <img src="img/running-pipeline.png" alt="Running pipeline." height=90% width=90% />
+
+## Delete Resources
+
+### Remove Kubeflow
+```bash
+# navigate to kubeflow app
+cd ${KFAPP}
+
+# run script to delete the deployment
+${KUBEFLOW_SRC}/scripts/kfctl.sh delete all
+```
+
+### Remove the Kubernetes Cluster
+```bash
+# delete the kubernetes cluster
+gcloud container clusters delete ekaba-gke-cluster
+```
