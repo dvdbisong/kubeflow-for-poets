@@ -8,8 +8,6 @@ Table of Contents:
     - [Download kfctl.sh](#download-kfctlsh)
     - [Deploy Kubeflow](#deploy-kubeflow)
   - [Delete Resources](#delete-resources)
-    - [Remove Kubeflow](#remove-kubeflow)
-    - [Remove the Kubernetes Cluster](#remove-the-kubernetes-cluster)
 
 Kubeflow is a platform that is created to enhance and simplify the process of deploying machine learning workflows on Kubernetes. Using Kubeflow, it becomes easier to manage a distributed machine learning deployment by placing components in the deployment pipeline such as the training, serving, monitoring and logging components into containers on the Kubernetes cluster.
 
