@@ -152,10 +152,13 @@ ${KUBEFLOW_SRC}/scripts/kfctl.sh init ${KFAPP} --platform gcp --project ${PROJEC
 # navigate to the deployment directory
 cd ${KFAPP}
 
-# creates config files defining the various resources running on kubernetes
+# creates config files defining the various resources for gcp
 ${KUBEFLOW_SRC}/scripts/kfctl.sh generate platform
+# creates or updates gcp resources
 ${KUBEFLOW_SRC}/scripts/kfctl.sh apply platform
+# creates config files defining the various resources for gke
 ${KUBEFLOW_SRC}/scripts/kfctl.sh generate k8s
+# creates or updates gke resources
 ${KUBEFLOW_SRC}/scripts/kfctl.sh apply k8s
 ```
 
