@@ -1,7 +1,7 @@
 # Deploying an End-to-End Machine Learning Solution on Kubeflow Pipelines
 
 Table of Contents:
-- [Deploying an End-to-End Machine Learning Solution on Kubeflow Pipelines](#deploying-an-end-to-end-machine-learning-solution-on-kubeflow-pipelines)
+<!-- - [Deploying an End-to-End Machine Learning Solution on Kubeflow Pipelines](#deploying-an-end-to-end-machine-learning-solution-on-kubeflow-pipelines) -->
   - [Overview of a simple end-to-end solution pipeline](#overview-of-a-simple-end-to-end-solution-pipeline)
   - [Create a container image for each component](#create-a-container-image-for-each-component)
   - [Build containers before upload to Kubeflow Pipelines](#build-containers-before-upload-to-kubeflow-pipelines)
@@ -10,6 +10,7 @@ Table of Contents:
   - [Delete Resources](#delete-resources)
     - [Delete Kubeflow](#delete-kubeflow)
     - [Delete the Kubernetes Cluster](#delete-the-kubernetes-cluster)
+  - [References](#references)
 
 A Kubeflow pipeline component is an implementation of a pipeline task. A component is a step in the workflow. Each task takes one or more artifacts as input and may produce one or more artifacts as output.
 
@@ -100,3 +101,8 @@ ${KUBEFLOW_SRC}/scripts/kfctl.sh delete all
 # delete the kubernetes cluster
 gcloud container clusters delete ekaba-gke-cluster
 ```
+
+## References
+The following resources are very useful for creating and deploying a Kubeflow Pipeline.
+- <a href="https://towardsdatascience.com/how-to-create-and-deploy-a-kubeflow-machine-learning-pipeline-part-1-efea7a4b650f">How to create and deploy a Kubeflow Machine Learning Pipeline (Part 1)</a>
+- <a href="https://towardsdatascience.com/how-to-deploy-jupyter-notebooks-as-components-of-a-kubeflow-ml-pipeline-part-2-b1df77f4e5b3">How to deploy Jupyter notebooks as components of a Kubeflow ML pipeline (Part 2)</a>
