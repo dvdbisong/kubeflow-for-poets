@@ -31,7 +31,7 @@ The pipeline consists of the following components:
 
 ## Create a container image for each component
 First, we'll package the client and runtime code into a Docker image. This image also contains the secure service account key to authenticate against GCP. For example, the component to transform the dataset using Dataflow has the following files built into ints image:
-```bash
+```t
 |__ `DataflowTransform`
 |______ `Dockerfile` : Dockerfile to build the Docker image.
 |______ `build.sh` : Script to initiate the container build and upload to Google Container Registry.
