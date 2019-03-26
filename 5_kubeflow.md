@@ -176,4 +176,4 @@ Kubeflow is available at the url: https://ekaba-kubeflow-app.endpoints.oceanic-s
 
 ## Delete Resources
 
-See the end of <a href="./6_kubeflow_pipelines.md">Kubeflow Pipelines</a> to delete billable GCP resources.
+See the end of <a href="./7_end_to_end_kubeflow_pipelines.md">Deploying an End-to-End Machine Learning Solution on Kubeflow Pipelines</a> to delete billable GCP resources.

@@ -47,18 +47,4 @@ The Kubeflow Pipelines platform consists of:
 <img src="img/running-pipeline.png" alt="Running pipeline." height=90% width=90% />
 
 ## Delete Resources
-
-### Remove Kubeflow
-```bash
-# navigate to kubeflow app
-cd ${KFAPP}
-
-# run script to delete the deployment
-${KUBEFLOW_SRC}/scripts/kfctl.sh delete all
-```
-
-### Remove the Kubernetes Cluster
-```bash
-# delete the kubernetes cluster
-gcloud container clusters delete ekaba-gke-cluster
-```
+See the end of <a href="./7_end_to_end_kubeflow_pipelines.md">Deploying an End-to-End Machine Learning Solution on Kubeflow Pipelines</a> to delete billable GCP resources.
