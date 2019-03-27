@@ -1,9 +1,9 @@
 # Kubeflow for Poets: A Guide to Containerization of the Machine Learning Production Pipeline
 
 <p align="left">
+    <img src="img/kubeflow.jpg" align="middle" alt="Kubeflow." height=20% width=20%/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <img src="img/docker.png" align="middle" alt="Docker." height=20% width=20%/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <img src="img/kubernetes.jpg" align="middle" alt="Kubernetes." height=20% width=20%/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <img src="img/kubeflow.jpg" align="middle" alt="Kubeflow." height=20% width=20%/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <img src="img/gcp.png" align="middle" alt="Google Cloud Platform." height=20% width=20%/>
 </p>
 
