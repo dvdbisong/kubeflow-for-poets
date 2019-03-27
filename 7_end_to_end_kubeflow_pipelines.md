@@ -84,11 +84,11 @@ python3 crypto_pipeline.py crypto_pipeline.tar.gz
 
 <img src="img/completed-pipeline-run.png" alt="Completed Pipeline Run." height=90% width=90% />
 
-### Deployed Model on Cloud MLE
-<img src="img/deployed-model.png" alt="Deployed Model." height=90% width=90% />
-
 ### Completed Dataflow Pipeline
 <img src="img/completed-dataflow-pipeline.png" alt="Completed Dataflow Pipeline." height=90% width=90% />
+
+### Deployed Model on Cloud MLE
+<img src="img/deployed-model.png" alt="Deployed Model." height=90% width=90% />
 
 ## Delete Resources
 
