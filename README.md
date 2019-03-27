@@ -30,3 +30,6 @@ The content is arranged as follows:
  - <a href="https://cloud.google.com/dataflow/">Google Cloud Dataflow</a>
  - <a href="https://cloud.google.com/ml-engine/">Google Cloud Machine Learning Engine</a>
  - <a href="https://cloud.google.com/kubernetes-engine/">Google Kubernetes Engine</a>
+
+## Contribution:
+Contributions and corrections are welcomed as pull requests.
