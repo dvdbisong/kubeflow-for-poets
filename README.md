@@ -1,3 +1,5 @@
+[![HitCount](http://hits.dwyl.io/dvdbisong/kubeflow-for-poets.svg)](http://hits.dwyl.io/dvdbisong/kubeflow-for-poets)
+
 # Kubeflow for Poets: A Guide to Containerization of the Machine Learning Production Pipeline
 
 <p align="left">
